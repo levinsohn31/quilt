@@ -1,0 +1,47 @@
+.janrain-capture-ui .capture_form_item.orientation {
+  position: absolute;
+  top: 120px;
+  right: 10px;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 150px;
+  .capture_display_radios {
+    display: block;
+    position: static !important;
+    .capture_radio_box {
+      float: none;
+      label {
+        width: 100px; 
+      } 
+    } 
+  } 
+}
+
+.border {
+  border: 1px solid #ccc; 
+}
+
+.instructions {
+  a.capture_back {
+    vertical-align: middle;
+    margin: 10px 5px; }
+  .provider {
+    margin: 0; 
+  } 
+}
+
+.janrain-capture-ui.capture-ui-content.janrain-capture-ui-mobile {
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border: 5px #666666 solid;
+  margin: 25px auto;
+  &.janrain-capture-ui-mobile-portrait {
+    height: 480px;
+    overflow-x: auto; 
+  }
+  &.janrain-capture-ui-mobile-landscape {
+    height: 320px;
+    overflow-x: auto; 
+  } 
+}

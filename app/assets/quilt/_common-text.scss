@@ -1,0 +1,236 @@
+html, body {
+  font-family: Helvetica, Arial, sans-serif;
+  text-align: left;
+  font-weight: normal;
+  color: $text-color;
+  font-size:$basefont;
+  background: image-url('bg-blue.png') repeat;
+  margin: 0 0 75px 0;
+  &.contentBoxBlueTexture {
+   padding: 0;
+   @include border-radius(0);
+  }
+}
+
+body.dark, html.dark {
+	background: image-url('bg-dark.png') repeat;
+}
+
+body.documentation {
+	font-size: 14px;
+	color: #373737;
+	line-height: 1.5;
+}
+
+.janrain-font {
+  font-family: "proxima-nova", helvetica;
+}
+
+
+// Clearfix for clearing floats like a boss h5bp.com/q
+.clearfix {
+	zoom: 1;
+	&:before, &:after {
+    display: table;
+    content: "";
+	    zoom: 1;
+    	*display: inline;
+	}
+	&:after {
+	clear: both;
+	}
+}
+.inline {
+    @include inline-block;
+    vertical-align: middle;
+}
+.right {float: right;}
+.left {float: left;}
+.vertTop {vertical-align: top;}
+.vertMiddle {vertical-align: middle;}
+
+pre {
+ white-space: pre-wrap;       /* css-3 */
+ white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+ white-space: -pre-wrap;      /* Opera 4-6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+* {
+	word-wrap: break-word;
+}
+
+strong {
+	color: #555;
+	font-weight: bold;
+}
+
+br {
+	clear: both;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+	color: $blueDarker;
+	padding: 10px 0 5px;
+	margin: 0;
+	&.babyblue {
+		color: $baby-blue;
+		font-weight: 200;
+	}
+	&.noPad {
+	 padding: 0;
+	}
+}
+h1 {
+	font-size: 3.143em;
+	font-weight: 300;
+	&.lrg {
+    font-size: 4em;
+    font-weight: 100;
+    .smallText {
+      font-size: $basefont * 2;
+    }
+	}
+}
+h2 {
+	color: $blueDarker;
+	font-size: 2.154em;
+	line-height: inherit;
+	font-weight: 100;
+	text-shadow: 0 1px rgba(255,255,255,.5);
+	line-height: 24px;
+}
+h3 {
+	color: $blueDarker;
+	font-size: 1.429em;
+	font-weight: 100;
+	text-shadow: 0 1px rgba(255,255,255,.5);
+	line-height: 24px;
+}
+h4 {
+	font-size: 1.286em;
+	font-weight: 200;
+	color: $darkBlueText;
+	&.plus {
+		color: $green;
+	}
+	&.minus {
+		color: $red;
+	}
+}
+h5 {
+	font-size: 1.077em;
+	font-weight: 700;
+	color: #000;
+}
+.janrain-darkBlueGray {
+  color: $darkBlueGray;
+}
+p {
+	margin: 0 0 15px 0;
+}
+.smallText {
+  font-size: $basefont - 2;
+}
+a:link {
+	color: $linkColor;
+	text-decoration: none;
+}
+a:visited {
+	color: $linkVisited;
+}
+a:hover {
+	color: $linkColorHover;
+}
+hr {
+	@include hr;
+}
+hr.blur {
+ 	border: 0;
+  height: 3px;
+ 	@include box-shadow (none);
+  @include background (linear-gradient(left, transparent, rgba(0,0,0,0.1), transparent));
+}
+input, select, textarea, button {
+	@include janrain-font;
+	border: 0;
+}
+
+input::-moz-focus-inner,
+button::-moz-focus-inner /*Remove button padding in FF*/
+{
+    border: 0;
+    padding: 0;
+}
+
+select.styled {
+	-webkit-appearance: none;
+	background: #fff image-url('select_arrow.png') no-repeat right center;
+	width: 150px;
+}
+
+.rightText {
+  text-align: right;
+}
+.centerText {
+  text-align: center;
+}
+
+// Lists
+// Unordered and Ordered lists
+ul, ol {
+  @include ul(disc, 0, 0 0 $baseline 25px);
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin-bottom: 0;
+}
+li {
+  line-height: $baseline;
+  list-style: inherit;
+}
+ul.unstyled {
+  @include ul(none, 0, 0);
+}
+
+ul.inline-list {
+  @include ul(disc, 0, 0 0 $baseline 25px);
+  li {
+    float: left;
+    width: 150px;
+    display: list-item;
+  }
+}
+
+// Description Lists
+dl {
+  margin-bottom: $baseline;
+  dt, dd {
+    line-height: $baseline;
+  }
+  dt {
+    font-weight: bold;
+  }
+  dd {
+    margin-left: $baseline / 2;
+  }
+}
+
+code {
+	font-family: monospace;
+	color: #CB4B16;
+	font-size: 13px;
+	background: #fbfbfb;
+	border: 1px solid rgba(0,0,0,0.1);
+	@include border-radius(3px);
+	padding: 2px 4px;
+}

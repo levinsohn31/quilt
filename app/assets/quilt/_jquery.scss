@@ -1,0 +1,67 @@
+.ui-tabs-hide {
+	display: none;
+}
+
+.ui-widget-overlay {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: rgba(26, 44, 58, .8) image-url('texture.png') repeat;
+}
+.ui-dialog {
+	position: absolute;
+	display: none;
+	min-width: 400px;
+	min-height: 300px;
+	@include box-shadow(0 5px 12px rgba(26, 44, 58, .65));
+ background: #E6F0F5;
+ @include border-radius(5px);
+	.ui-dialog-titlebar {
+	 display: inline-block;
+	 width: 100%;
+	 position: relative;
+		.ui-dialog-title {
+		  padding: 10px;
+		  font-weight: 300;
+		  float: left;
+		  margin-right: 35px;
+		}
+		.ui-dialog-titlebar-close {
+			position: absolute;
+			top: 0px;
+			right: 0px;
+			color: #818593;
+			font-weight: 100;
+			padding: 10px;
+			&:hover {
+			  color: #0093C4;
+			  @include transition(color, .3s);
+			}
+			.ui-icon-closethick {
+			  vertical-align: middle;
+			  margin-right: 5px;
+			}
+		}
+	}
+	.ui-dialog-content {
+	  padding: 10px;
+	  clear: both;
+	}
+	.ui-dialog-buttonpane {
+		text-align: right;
+		display:block;
+		.ui-button {
+			margin-right: 0px;
+			margin-left: 10px;
+			float: right;
+			@include btn-message;
+			@include btn-gradient ($blue);
+			text-shadow: 0 1px #0085BA;
+		}
+	}
+	&.ui-draggable-dragging {
+		cursor: move;
+	}
+}

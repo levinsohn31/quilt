@@ -1,0 +1,571 @@
+// The default and admin navigation bar that goes under the global nav
+.nav_bar {
+  @include filter-gradient(#127FBF,#074764,vertical);
+  @include background(image-url('texture.png') repeat,linear-gradient(top,#127FBF,#074764));
+  position: relative;
+  width: 100%;
+  z-index: 100;
+  @include box-shadow(inset 0 1px 0px rgba(255,255,255,.2),0 1px 1px rgba(0,0,0,.2));
+  @include pie-clearfix;
+  @media screen and (max-width: 960px) {
+      width: auto;
+  }
+  @media screen and (max-width: 500px) {
+      width: auto;
+      height: auto;
+      text-align: center;
+      background: transparent;
+      .wrapper {
+        padding: 0;
+      }
+  }
+}
+// Global Navigation - used across all Janrain sites
+.global_nav {
+  width: 100%;
+  background-color: $navy;
+	.home_link {
+		display: block;
+		float: left;
+		width: 88px;
+		height: 45px;
+		background: image-url('logo.png') no-repeat 5px center;
+		@media
+		only screen and (-webkit-min-device-pixel-ratio: 1.1),
+		only screen and (min-resolution: 100dpi) {
+			background: image-url('logo_2x.png') no-repeat 5px center;
+			@include background-size (74px 21px);
+		}
+	}
+    @media screen and (max-width: 960px) {
+      padding: 0 10px;
+      width: auto;
+    }
+    .nav_link {
+      display: none;
+    }
+    .nav-list {
+      @include ul(none, 0 0 0 98px, auto);
+      height: 45px;
+      text-align: right;
+      > li {
+        @include inline-block;
+      }
+      > li > a {
+        color: #929FB2;
+        @include text-shadow (0 0 1px $black);
+        @include inline-block;
+        padding: 14px 0 14px 15px;
+        font-size: 0.857em;
+        font-weight: 400;
+        text-transform: uppercase;
+        &:hover {
+          color: $white;
+        }
+        &.selected {
+          color: white;
+          font-weight: normal;
+        }
+        .avatar{
+            height: 20px;
+            width: 20px;
+            vertical-align: middle;
+            margin-right: 5px;
+            margin-top:-5px;
+            @include border-radius(3px);
+            display: inline-block;
+            overflow: hidden;
+            background: rgba(0,0,0,.2);
+            img {
+              width: 20px;
+            }
+        }
+      }
+      li.dropdown {
+        a:after {
+          display: none;
+        }
+        &.selected .subnav {
+          display: block;
+          width: 150px;
+        }
+    }
+  }
+  .subnav {
+    left: 0;
+    right: auto;
+    &:before {
+      left: 15px;
+      right: auto;
+    }
+  }
+}
+
+.dropdown {
+  position: relative;
+  > a:after {
+    font-family: janrain-icons;
+    content: '\e006';
+    font-size: 16px;
+    @include inline-block;
+    vertical-align: top;
+    margin-left: 10px;
+  }
+}
+.selected .subnav {
+  display: block;
+  position: absolute;
+}
+
+.subnav {
+  display: none;
+  @include ul (none, 7px 0, 0);
+  background: #127FBF none;
+  @include border-radius (5px);
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 9999999;
+  width: 175px;
+  text-align: left;
+  > li > a {
+    color: #C4DFEF;
+    display: block;
+    font-size: 1em;
+    padding: 5px 10px;
+    text-transform: capitalize;
+    text-shadow: 0 1px rgba(0,0,0,.1);
+    &:hover {
+      @include hover-transition;
+      color: #fff;
+      background: #146EA4;
+    }
+  }
+  .selected a {
+    background: #146EA4;
+  }
+  .selected a:before {
+    content: '\2192\00a0';
+  }
+  &:before {
+    font-family: janrain-icons;
+    content: '\e007';
+    font-size: 24px;
+    position: absolute;
+    right: 11px;
+    width: 24px;
+    height: 24px;
+    color: #127FBF;
+    z-index: 1;
+    top: -8px;
+  }
+}
+// Main navigation addon for main navigation
+.main_nav {
+    @include ul(none, 0, auto);
+    float: left;
+    @include inline-block;
+  > li {
+      @include inline-block;
+      white-space: nowrap;
+      @media screen and (max-width: 500px) {
+        width: 100%;
+        display: normal;
+        @include filter-gradient(#127fbf,#08597e,vertical);
+        @include background(image-url('texture.png') repeat,linear-gradient(top,#127FBF,#08597E));
+      }
+      > a {
+        font-size: 1.071em;
+        padding: 15px;
+        height: 15px;
+        display: block;
+        text-decoration: none;
+        font-weight: 300;
+        text-shadow: 0 -1px rgba(0,0,0,.25);
+        .icon {
+          float: left;
+          margin: 0px 5px 0 0;
+          font-size: 1em;
+        }
+        &:visited, &:link {
+          color: #B9CCDB;
+        }
+        &:hover {
+          color: #fff;
+          text-shadow: 0 0 3px #fff;
+          @include transition(text-shadow, 0.2s);
+        }
+      }
+      &.selected > a {
+        background: rgba(0,0,0,.15);
+        @include box-shadow(inset 0 0 3px rgba(26, 44, 58, .25));
+        color: #fff;
+        @include transition(background, 0.2s);
+        text-shadow: 0 0 20px rgba(255,255,255,1);
+        position: relative;
+        &:hover {
+          text-shadow: none;
+        }
+        @media screen and (min-width: 500px) {
+          &.selected > a:before {
+            background-image: none;
+          }
+        }
+        @media screen and (max-width: 500px) {
+          background: rgba(0,0,0,.25);
+        }
+      }
+      &.selected > a:before {
+        content: '';
+        background: image-url('nav_arrow_lightblue.png') no-repeat bottom center;
+        position: absolute;
+        height: 20px;
+        bottom: -3px;
+        left: 0px;
+        right: 0px;
+      }
+      &.selected.dropdown > a:before {
+        background-image: none;
+      }
+  }
+}
+.dark_arrow li.selected > a:before {
+  background: image-url('nav_arrow_dark.png') no-repeat bottom center;
+}
+
+//Breadcrumbs
+.breadcrumbs {
+  margin: 10px 0;
+  @include pie-clearfix;
+  font-size: $basefont - 1;
+  li {
+    list-style: none;
+    float: left;
+    &:last-child a {
+      color: lighten($darkBlueText, 40);
+      &:after {
+        display: none;
+      }
+    }
+  }
+  a {
+    display: block;
+    padding: 5px 25px 5px 0;
+    text-decoration: none;
+    position: relative;
+    &:after {
+      content:"";
+      display: block;
+      position: absolute;
+      right: 10px;
+      height: 5px;
+      width: 5px;
+      top: 10px;
+      @include rotate(45deg);
+      border-top: 1px lighten($darkBlueText, 40) solid;
+      border-right: 1px lighten($darkBlueText, 40) solid;
+    }
+  }
+}
+
+//Numbered Step Nav
+.numbered_steps {
+  @include ul(none, 0, 0);
+  li {
+    @include inline-block;
+    margin-right: 20px;
+    span {
+      background-color: $blue;
+      @include border-radius (3px);
+      padding: 1px 5px;
+      margin: -1px 5px 0 0;
+      line-height: 14px;
+      @include inline-block;
+      color: white;
+      font-weight: bold;
+    }
+  }
+}
+.task_steps {
+  @include ul(none, 0 0 0 15px, 0);
+  background-color: $white;
+  @include border-radius (5px);
+    li {
+    @include inline-block;
+    padding: 5px 15px;
+    font-weight: 200;
+    a {
+      display: block;
+    }
+    .step {
+      @include border-radius(4px);
+      font-size: 1em;
+      color: $white;
+      padding: 1px 5px;
+    }
+    &:first-child {
+        padding-left: 0px;
+    }
+    &.link a {
+      color: $blue;
+      .step {
+        background: #009DDC;
+      }
+    }
+    &.active {
+      background: image-url('bg-blue.png') repeat;
+      .step {
+        background: #1A2C3A;
+      }
+      a {
+        color: #1A2C3A;
+      }
+    }
+    &.inactive a {
+      pointer-events: none;
+      cursor: default;
+      color: #E5E5E5;
+    }
+    &.done a {
+        color: #666666;
+        pointer-events: none;
+        cursor: default;
+    }
+    span {
+      margin-right: 5px;
+      vertical-align: top;
+    }
+  }
+}
+.tab_bar {
+  height: 50px;
+  margin-bottom: 20px;
+  @include hr;
+  //Matches media query for .wrapper to not require a height.
+  @media screen and (max-width: 960px) {
+    height: auto;
+  }
+  &.dark {
+    @include box-shadow(0 1px 0 #21303B,0 2px 0 #3E4D59);
+    .tab_nav a {
+      color: #3FB8F7;
+      text-shadow: 0 1px rgba(255,255,255,.1);
+    }
+    .tab_nav .selected a {
+      color: #fff;
+      border-bottom: 4px solid #fff;
+      text-shadow: 0 -1px rgba(0,0,0,.1);
+    }
+  }
+}
+
+// Tab bar - secondary navigation for the main navigation
+.tab_nav {
+  @include ul (none,0,0);
+  li {
+    @include inline-block;
+  }
+  .label {
+    color: #6FAC48;
+    font-weight: 700;
+    text-transform: capitalize;
+    padding: 15px 0px;
+    margin: 0 20px;
+  }
+  a {
+    text-decoration: none;
+    color: #127FBF;
+    font-weight: 600;
+    padding: 15px 0px;
+    margin: 0 20px;
+    display: block;
+    &:hover {
+      color: #132532;
+      text-decoration: underline;
+      @include transition(color, 0.2s);
+    }
+  }
+  .selected a {
+    color: #1A2C3A;
+    border-bottom: 4px solid #1A2C3A;
+    @include transition(all, 0.3s);
+  }
+  .inactive {
+    @include navInactive(500, 0);
+    &:hover {
+      cursor: default;
+    }
+  }
+}
+// Pills
+.pills {
+  @include ul (none, 0, 0);
+  li {
+    display:inline;
+    span, label {
+      @include pill;
+    }
+    &.active a {
+      @include pill(#EEE, $blueDark, $basefont+2, 5px 15px, 7px);
+      &:hover {
+        color: $blueDark;
+      }
+    }
+    a {
+      @include pill($white, $text-color, $basefont+2, 5px 15px, 7px);
+      &:hover {
+        background-color: #eee;
+        @include hover-transition;
+      }
+    }
+  }
+}
+.pill {
+  @include pill;
+}
+
+// dropdown select
+.select {
+  @include ul(none, 0, 0 auto);
+  position: relative;
+  @include inline-block;
+  font-size: 1.1em;
+  .select-label {
+    padding: 5px 50px 4px 10px;
+    @include filter-gradient(#fff,#f6f6f6,vertical);
+    @include background (linear-gradient(top,#fff,#f6f6f6));
+    @include border-radius (5px);
+    border: 1px solid #ddd;
+    color: #666;
+    display: inline-block;
+    text-shadow: 0 1px rgba(255,255,255,.75);
+    cursor: pointer;
+    &:hover {
+      color: #fff;
+      @include filter-gradient(#3FB8F7, #009DDC,vertical);
+      @include background(linear-gradient(top , #3FB8F7, #009DDC));
+      text-shadow: 0 -1px rgba(0,0,0,.1);
+    }
+    &:active {
+        outline: none;
+    }
+  }
+  > li > a:after {
+    position: absolute;
+    right: 7px;
+    top: 6px;
+  }
+  > .selected .options {
+    display: block;
+  }
+  .options {
+    @include ul(none, 0, 0);
+    display: none;
+    background: #fff;
+    position: absolute;
+    border: 1px solid #ddd;
+    border-width: 0 1px 1px 1px;
+    @include border-radius(0 0 5px 5px);
+    @include box-shadow(0 1px 1px rgba(0,0,0,.1));
+    top: 25px;
+    left: 0;
+    right: 0;
+    z-index: 9999999;
+    a {
+      color:#666;
+      display: block;
+      padding: 10px 50px 10px 15px;
+      &:hover {
+        color: #333;
+      }
+    }
+    h5 {
+      @include filter-gradient(#3FB8F7,#009DDC,vertical);
+      @include background(linear-gradient(top,#3FB8F7,#009DDC));
+      @include box-shadow(0 1px 1px rgba(0,0,0,.1));
+      text-shadow: 0 1px 0 rgba(255,255,255,.25);
+      padding: 7px 0 6px 10px;
+    }
+    .selected a:before {
+      content: '\2192';
+      padding-right: 10px;
+      color: #333;
+    }
+    li:hover {
+       background: #eee;
+    }
+    .action {
+       background: #eee;
+       @include border-radius(0 0 4px 4px);
+       margin-top: 10px;
+    }
+  }
+  &.apps .select-label {
+    font-weight: 600;
+    min-width: 175px;
+  }
+  &.apps .options {
+      border-top: 1px solid #ddd;
+  }
+  &.apps .selected .select-label {
+    @include filter-gradient(#666,#999,vertical);
+    @include background (linear-gradient(top,#666,#999));
+    @include border-radius(5px 5px 0 0);
+    border: 1px solid #ccc;
+    color: #fff;
+    text-shadow: 0 1px rgba(0,0,0,.5);
+    @include box-shadow(0 1px 1px rgba(0,0,0,.1));
+  }
+}
+.toggle-nav {
+  @include border-radius (5px);
+  @include ul (none, 0, 0);
+  @include pie-clearfix;
+  @include inline-block;
+  border: 1px solid #ccc;
+  & > li {
+    @include btn-gradient (#eee);
+    border-right: 1px solid #c6c6c6;
+    @include inline-block;
+    margin-right: -4px;
+    position: relative;
+    &:first-child {
+      @include border-radius (4px 0 0 4px);
+    }
+    &:last-child {
+      @include border-radius (0 4px 4px 0);
+    }
+    > .item {
+      padding: 5px 15px;
+      display: block;
+      text-shadow:0 1px #fff;
+      color: #666;
+      font-size: $basefont;
+      &:hover {
+       color: $grayDarker;
+      }
+    }
+  }
+  .dropdown:hover .item:visited,
+  .dropdown:hover .item:link {
+      color: $grayDarker;
+    }
+  .dropdown:hover .subnav {
+    display:block;
+  }
+  .active {
+    @include background(linear-gradient(top,#127FBF,#074764));
+    @include box-shadow (0px 13px 13px -26px $grayDarker inset, 0 2px 2px rgba(0,0,0,0.2) inset);
+    border-right: none;
+    > .item {
+      color: #fff;
+      text-shadow:0 -1px rgba(0,0,0,.2);
+      &:hover {
+        color: #fff;
+      }
+    }
+    &.dropdown:hover .item:visited, &.dropdown:hover .item:link {
+      color: $white;
+    }
+  }
+}

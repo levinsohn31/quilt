@@ -1,0 +1,140 @@
+// Layout Styles
+#wrapper,.wrapper {
+	width: 960px;
+	margin: 0 auto;
+	float: none;
+	position: relative;
+	@media screen and (max-width: 960px) {
+		width: 100%;
+		@include box-sizing (border-box);
+		padding: 0 15px;
+	}
+}
+
+.contentBoxWhite {
+	@include contentBox (#fff, none);
+}
+
+.contentBoxWhiteShadow {
+	@include contentBox (#fff);
+  h2,h3 {
+  	color: $darkBlueGray;
+  }
+	h5 {
+		border-bottom: 1px solid #E9E9E9;
+		display: block;
+		padding: 8px 10px 8px 0px;
+		margin-top: 10px;
+		margin-bottom: 5px;
+		color: #333;
+		font-weight: 400;
+		&:first-child {
+			margin: -10px -10px 10px;
+			@include border-radius(5px 5px 0 0);
+			padding: 8px 10px;
+			background: #fff;
+			color: #000;
+			font-weight: 700;
+		}
+	}
+}
+
+.contentBoxGray {
+	@include contentBox ($grayLighter);
+}
+
+.contentBoxGrayShadow {
+	@include contentBox ($grayLighter);
+	@include box-shadow (0 1px 1px rgba(0,0,0,.1));
+}
+
+.contentBoxGrayDark {
+	@include contentBox ($grayLight);
+}
+.contentBoxBlue {
+	@include contentBox (#24538B);
+    color: $white;
+    @include text-shadow (0 1px rgba(0,0,0,0.2));
+	background-image: image-url('box-bg.png');
+	background-repeat: repeat;
+	h1 {
+		color: $white;
+	}
+	p {
+		color: $white;
+	}
+}
+
+.contentBoxDarkBlue,
+.contentBoxDarkBlueTexture {
+  @include contentBox ($darkBlueText);
+	background: image-url('bg-dark-blue.png') repeat;
+	color: $white;
+	h1,h2,h3,h4,h5,h6 {
+	 color: $white;
+	}
+	a:visited, a, a:link {
+	 color: $lightBlueText;
+	}
+	a:hover {
+	 color: lighten($lightBlueText, 10);
+	}
+	.janrain_feature_box {
+	   @include contentBox (rgba(0,0,0, 0.2));
+	   @include box-shadow (0 -1px 0px 0px rgba(255, 255, 255, 0.1) inset);
+	   margin: 0 auto;
+	   h2 {
+	     font-size: $basefont + 5;
+	   }
+	}
+	&.light_glow {
+    @include background(radial-gradient(center center, contain, rgba(#5EAED3,0.15) 0%, rgba(#5EAED3,0) 100%),image-url('bg-dark-blue.png') repeat);
+	}
+}
+.contentBoxDarkBlue {
+  background-color: $darkBlueText;
+  background-image: none;
+}
+
+.contentBoxLightBlue,
+.contentBoxBlueTexture {
+  @include contentBox (transparent);
+	background: image-url('bg-blue.png') repeat;
+	color: $darkBlueText;
+	a {
+	 color: #0093C4;
+	}
+}
+
+.contentBoxLightBlue {
+  background-color: $lightBlue;
+  background-image: none;
+}
+
+.contentBoxSidebar {
+  @include contentBox (#CBD6DB);
+  h3 {
+   padding-top: 0;
+   color: $green;
+  }
+}
+
+.contentBoxDarkBlue50 {
+  @include contentBox (rgba($darkBlueText, 0.5));
+  position: relative;
+  .arrow {
+    @include arrows (transparent, transparent, rgba($darkBlueText, 0.5), transparent);
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    margin-left: -8px;
+  }
+}
+
+.contentBoxDarkBlue10 {
+  @include contentBox (rgba($darkBlueText, 0.1));
+}
+
+.noise {
+	background: image-url("white_noise.png") repeat;
+}

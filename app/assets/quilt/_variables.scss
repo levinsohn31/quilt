@@ -1,0 +1,124 @@
+/*/ Colors /*/
+$text-color: #2D3B48;
+$blue: #009DDC;
+$baby-blue: #0092C4;
+$blueDark: #127FBF;
+$lightBlueText: #3FB8F7;
+$lightBlue: #E6F0F5;
+$darkBlueText: #273846;
+$darkBlueGray: #717684;
+$navy: #1A2C3A;
+$blueDarker: #192C39;
+$green: #7AC143;
+$greenDark: #4E9A44;
+$light-blue: #D0E5F2;
+$orange: #F8971D;
+$orangeDark: #F57003;
+$red: #E85E39;
+$white: #fff;
+$blueGradientLight:#3DB7F6;
+$blueGradientDark:#059FDE;
+$grayGradientLight:#e3e3e3;
+$grayGradientDark:#cdcdcd;
+$greenGradientLight:#67B747;
+$greenGradientDark:#4D9F4A;
+$orangeGradientLight:#F8971D;
+$orangeGradientDark:#F57003;
+$secondaryBackgroundColor: #F6F6F6;
+
+//Button/Message Shadows
+$lightShadowTop: 0 1px 0px 0px rgba(255, 255, 255, 0.50) inset;
+$darkShadowTop: 0 1px 0px 0px rgba(0, 0, 0, 0.2) inset;
+$darkShadowBottom: 0 -1px 0px 0px rgba(0, 0, 0, 0.2) inset;
+$lightShadowBottom: 0 -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
+$innerShadow: 0 -26px 20px -13px rgba(0, 0, 0, 0.2) inset;
+$insetHover: rgba(#000, 0.05) 0 0 20px inset;
+$insetShadow: 0 0 5px rgba(0, 0, 0, 0.2) inset;
+$dropShadow: 1px 0 rgba(0,0,0,.1);
+
+$lightShadowTopActive: 0 1px 0px 0px rgba(0, 0, 0, 0.1) inset;
+$InsetActive: rgba(#000, 0.1) 0 0 20px inset;
+$lightShadowBottomActive: 0 -1px 0px 0px rgba(255, 255, 255, 0.35) inset;
+
+// Links
+$linkColor: #009DDC;
+$linkVisited: #074764;
+$linkColorHover: darken($linkColor, 15);
+//Fields, Inputs
+$inputBorderColor: #ccc;
+$inputPlaceholderColor: #ccc;
+$inputBGColor: $secondaryBackgroundColor;
+$inputActiveBGColor: #fff;
+$inputActiveShadowColor: $blue;
+$inputActiveBorderColor: $blue;
+$inputActiveColor: #333;
+$inputShadow: 0 0 3px rgba(0,0,0,0.2) inset;
+
+// Grays
+$black: #000;
+$grayDark: lighten($black, 25%);
+$grayDarker: lighten($black, 20%);
+$gray: lighten($black, 50%);
+$grayLight: lighten($black, 75%);
+$grayLighter: lighten($black, 90%);
+$grayLightest: lighten($black, 95%);
+
+// Accent Colors
+$blueDark: #0064CD;
+$red: #9d261d;
+$yellow: #ffc40d;
+
+// Baseline grid
+$basefont: 14px;
+$baseline: 17px;
+$docsfont: 14px;
+
+// Devices
+$ipadMax: 1024px;
+
+// Providers //
+$providers: amazon aol blogger email disqus facebook flickr foursquare google hyves instagram
+			janrain linkedin live_id livejournal microsoftaccount mixi myopenid myspace netlog openid orkut
+			paypal placeholder renren salesforce sinaweibo soundcloud tumblr twitter
+			verisign vk vzn wordpress yahoo;
+
+$providersBGNeeded: amazon aol flickr livejournal mixi myopenid myspace netlog openid
+					orkut paypal renren sinaweibo verisign;
+
+$providerIconSizes: 16 24 32 48;
+
+// Icon font
+$icons: (\e000,'&#xe000',createUser), (\e001,'&#xe001',refresh),
+		(\e002,'&#xe002',database), (\e003,'&#xe003',rss), (\e004,'&#xe004',down),
+		(\e005,'&#xe005',smaller), (\e006,'&#xe006',dropdown), (\e007,'&#xe007',up),
+		(\e008,'&#xe008',expanded), (\e009,'&#xe009',wrench), (\e00a,'&#xe00a',fill),
+		(\e00b,'&#xe00b',clock), (\e00c,'&#xe00c',forward), (\e00d,'&#xe00d',check2),
+		(\e00e,'&#xe00e',mail), (\e00f,'&#xe00f',webinar), (\e010,'&#xe010',wand),
+		(\e011,'&#xe011',network), (\e012,'&#xe012',power), (\e013,'&#xe013',video),
+		(\e014,'&#xe014',phone), (\e015,'&#xe015',plus), (\e016,'&#xe016',question),
+		(\e017,'&#xe017',search), (\e018,'&#xe018',tablet), (\e019,'&#xe019',target),
+		(\e01a,'&#xe01a',tag), (\e01b,'&#xe01b',event), (\e01c,'&#xe01c',trash),
+		(\e01d,'&#xe01d',unlocked), (\e01e,'&#xe01e',person), (\e01f,'&#xe01f',people),
+		(\e020,'&#xe020',pencil), (\e021,'&#xe021',pages), (\e022,'&#xe022',email),
+		(\e023,'&#xe023',collapsed), (\e024,'&#xe024',locked), (\e025,'&#xe025',list),
+		(\e026,'&#xe026',link), (\e027,'&#xe027',lineGraph), (\e028,'&#xe028',fire),
+		(\e029,'&#xe029',janrain), (\e02a,'&#xe02a',battery), (\e02b,'&#xe02b',bigger),
+		(\e02c,'&#xe02c',conversation), (\e02d,'&#xe02d',frame),
+		(\e02e,'&#xe02e',gauge), (\e02f,'&#xe02f',dashboard), (\e030,'&#xe030',book),
+		(\e031,'&#xe031',addressBook), (\e032,'&#xe032',adjustment),
+		(\e033,'&#xe033',brush), (\e034,'&#xe034',delete), (\e035,'&#xe035',gear),
+		(\e036,'&#xe036',gears), (\e037,'&#xe037',desktop), (\e038,'&#xe038',bullhorn),
+		(\e039,'&#xe039',alert), (\e03a,'&#xe03a',analytics),
+		(\e03b,'&#xe03b',document), (\e03c,'&#xe03c',help), (\e03d,'&#xe03d',home),
+		(\e03e,'&#xe03e',error), (\e03f,'&#xe03f',chat), (\e040,'&#xe040',calendar),
+		(\e041,'&#xe041',android), (\e043,'&#xe043',ex2), (\e044,'&#xe044',ex),
+		(\e045,'&#xe045',key), (\e046,'&#xe046',info), (\e047,'&#xe047',id),
+		(\e048,'&#xe048',cloud), (\e049,'&#xe049',code), (\e04a,'&#xe04a',barChart),
+		(\e04b,'&#xe04b',back), (\e04c,'&#xe04c',grid), (\e04d,'&#xe04d',apple),
+		(\e04e,'&#xe04e',check);
+
+$iconStandardSizes: 16 24 32 48 64;
+$iconStandardColors: (green, $green), (blue, $blue), (white, $white), (orange, $orange), (red, $red);
+
+	
+

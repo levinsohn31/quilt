@@ -1,0 +1,120 @@
+// Mixins
+@mixin navInactive ($weight: 500, $padding: 10px 20px) {
+	text-decoration: none;
+	font-weight: $weight;
+	padding: $padding;
+}
+
+@mixin btn-gradient($color) {
+	background-color: darken($color, 10);
+	@include background-image (linear-gradient(top,$color,darken($color, 10)));
+	color: $white;
+}
+
+@mixin contentBox ($backgroundColor, $boxShadow: 0 1px 1px rgba(0,0,0,.1), $padding: 10px, $borderRadius: 5px) {
+	padding: $padding;
+	@include border-radius ($borderRadius);
+	background-color: $backgroundColor;
+	@include box-shadow ($boxShadow);
+}
+
+@mixin janrain-font ($weight: 400) {
+  font-family: "proxima-nova", helvetica;
+  font-weight: $weight;
+}
+
+// Layout Columns //
+$grid-width: 8.5%;
+$legacy-grid-width: 25.5%;
+$gutter-width: 2%;
+
+$columns: 12 11 10 9 8 7 6 5 4 3 2 1;
+@mixin grid-columns {
+    @each $colSize in $columns {
+        .col_#{$colSize} {
+            width: grid-width($colSize);
+        }
+    }
+}
+@mixin widget-grid-columns {
+    @each $colSize in $columns {
+        .capture_col_#{$colSize} {
+            width: grid-width($colSize);
+        }
+    }
+}
+
+$legacycolumns: (4,4), (3,3), (2,2), (1,1),(125,1.3333),(250,2.66667);
+@mixin legacy-grid-columns {
+    @each $columnSize in $legacycolumns {
+        $class: nth($columnSize, 1);
+        $value: nth($columnSize, 2);
+        .col#{$class} {
+            width: legacy-grid-width($value);
+        }
+    }
+}
+
+
+@mixin hr {
+	@include box-shadow (0 1px 0 0 rgba(255, 255, 255, 0.8));
+	border-bottom: 1px solid #C9D2D6;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@mixin arrows ($color1, $color2, $color3, $color4 ) {
+ 	border-color: $color1 $color2 $color3 $color4;
+	border-style: solid;
+	border-width: 8px;
+	display: inline-block;
+	height: 0 !important;
+	margin: 0;
+	width: 0 !important;
+	@include opacity (1.0);
+}
+@mixin pill ($pillColor: #999, $textcolor: #fff, $fontsize: $basefont, $padding: 1px 5px, $radius: 10px) {
+	white-space: nowrap;
+	list-style-type: none;
+	font-size: $fontsize;
+	padding: $padding;
+	margin: 0 5px 0 0;
+	background-color: $pillColor;
+	color: $textcolor;
+	@include border-radius($radius);
+}
+
+@mixin border ($side: bottom, $size: 2px, $type: solid, $color: #fff) {
+	border-#{$side}: $size $type $color;
+}
+
+@mixin ul ($type: none, $padding: 0, $margin: 0) {
+	list-style-type: $type;
+	padding: $padding;
+	margin: $margin;
+}
+
+@mixin hover-transition {
+	@include transition (all 0.10s linear 0s);
+}
+
+@mixin animate ($name: fadeIn, $duration: 1s, $delay: .2s, $function: ease, $mode: both) {
+  -moz-animation: $name $duration $delay $function $mode;
+  -webkit-animation: $name $duration $delay $function $mode;
+  -o-animation: $name $duration $delay $function $mode;
+  -ms-animation: $name $duration $delay $function $mode;
+  -khtml-animation: $name $duration $delay $function $mode;
+  animation: $name $duration $delay $function $mode;
+}
+
+
+@mixin providers-li ($width: 150px, $height: 23px, $padding: 0, $margin: 0 15px 15px 0) {
+	width: $width;
+	height: $height;
+	margin: $margin;
+	padding: $padding;
+	@include inline-block;
+}
+
+@mixin pattern {
+  background: #555 image-url('pattern.png') repeat;
+}

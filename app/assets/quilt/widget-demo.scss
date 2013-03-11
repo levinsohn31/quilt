@@ -1,0 +1,616 @@
+@import "compass/utilities/";
+@import "compass/css3/";
+@import "_widget-demo-variables";
+
+@mixin button-shadow {
+  	@include box-shadow($lightShadowTop, $darkShadowBottom, $innerShadow, 0px 0px 0px 3px rgba(0,0,0,0.1));
+}
+
+.janrain_close_confirm_container {
+	font-size: $baseFontSize;
+	line-height: $baseLine;
+	font-family: $baseFont;
+	@include border-radius(10px);
+  .janrain_close_confirm {
+    color: white;
+    .janrain_modal_confirm {
+      @include button-shadow;
+    	background-color: $contrastColor;
+    	@include background (linear-gradient(top,$primaryGradientLight,$primaryGradientDark));
+    	@include text-shadow (0 1px 1px rgba(0,0,0,.45));
+    	color: $primaryButtonTextColor;
+    }
+    .janrain_modal_cancel {
+      @include button-shadow;
+  		background-color: $secondaryButtonBGColor;
+  		color: $secondaryButtonTextColor;
+    }
+  }
+}
+
+#janrainModal .janrain-capture-ui.capture-ui-content {
+  padding: 55px 20px;
+  background-color: $bodyBGColor;
+  @include border-radius(5px);
+  .capture_footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25px;
+    z-index: 5;
+  }
+}
+#janrainModal .capture-ui-content.capture_lrg_footer {
+  padding-bottom: 80px;
+  .capture_footer {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    height: 40px;
+    text-align: left;
+    .capture_label {
+      width: 65%;
+      float: left;
+      margin-left: 25px;
+    }
+    .capture_btn {
+      float: right;
+      margin: 0 25px 0 0;
+    }
+  }
+}
+#janrainModal .capture-ui-content.capture_med_footer {
+  padding-bottom: 60px;
+  .capture_footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 35px;
+  }
+  .capture_btn {
+    float: right;
+    margin: 0 25px 0 0;
+  }
+}
+#janrainModal .capture-ui-content.capture_noFooter {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#janrainModal .capture_header {
+  background-color: $headerBGColor;
+  color: $headerTextColor;
+  @include border-radius(5px 5px 0 0);
+  text-align: center;
+  height: 45px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  h1 {
+    color: $white;
+    font-size: $baseFontSize + 7;
+    line-height: $baseLine + 5;
+    padding: 12px 0;
+  }
+  h2 {
+    color: $subheadTextColor;
+    line-height: $baseLine + 7;
+  }
+  .capture_backButton {
+    position: absolute;
+    left: 10px;
+    top: 9px;
+    margin: 0;
+    &:focus {
+      width: 26px;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+#janrainModal .capture_subhead {
+ 	background-color: $subheadBGColor;
+  color: $subheadTextColor;
+ 	@include box-shadow (0 3px 3px rgba(0, 0, 0, 0.1) inset);
+ 	position: absolute;
+ 	left: 0;
+ 	top: 45px;
+ 	width: 100%;
+ 	min-height: 45px;
+ 	h2 {
+    color: $white;
+    font-size: $baseFontSize + 1px;
+  }
+}
+
+
+.janrain-capture-ui {
+/*/ Text/Element Styles /*/
+	font-size: $baseFontSize;
+	line-height: $baseLine;
+	font-family: $baseFont;
+  color: $textColor;
+  background-color: transparent;
+  hr.white {
+    height: 1px;
+    width: 100%;
+    overflow: hidden;
+    background-color: $white;
+  }
+  &.capture-ui-content {
+    width: 600px; //Default screen size
+  }
+  .capture_backgroundColor,
+  &.capture_backgroundColor {
+    background-color: $containerBGColor;
+    color: $containerTextColor;
+    h1,h2,h3,h4,h5,h6 {
+      color: $containerHeadingTextColor
+    }
+    a, a:visited, a:link {
+      color: $containerlinkColor;
+    }
+    a:hover {
+      color: $containerlinkColorHover;
+    }
+    .capture_primary:visited,
+    .capture_primary:link,
+    .capture_primary:hover {
+      color: $primaryButtonTextColor;
+    }
+    .capture_secondary:visited,
+    .capture_secondary:link,
+    .capture_secondary:hover {
+      color: $secondaryButtonTextColor;
+    }
+    input,
+    select,
+    textarea,
+    .capture_checkbox,
+    .capture_radio {
+      background-color: $white;
+      &:focus {
+        background-color: $white;
+      }
+    }
+    .capture_provider li {
+      background-color: $white;
+    }
+    .capture_form_item .capture_display_toggle_wrap .capture_display_toggle:hover {
+      background-color: $white;
+    }
+  }
+  .capture_retrieving {
+    background-color: white;
+  }
+  .capture_dashed {
+    border: 1px $containerBorderColor dashed;
+  }
+  .capture_border {
+    border: 1px solid $containerBorderColor;
+  }
+  .capture_footer {
+    padding: 10px 0;
+    background-color: $containerBGColor;
+    color: $containerTextColor;
+    text-align: center;
+    margin-top: 10px;
+    @include border-radius(0 0 5px 5px);
+    p {
+      font-size: $baseFontSize - 1;
+    }
+  }
+  .capture_profile_section {
+    margin: 0 auto 20px;
+    padding: 20px 40px;
+    position: relative;
+  }
+  a,
+  a:visited,
+  a:link {
+  	color: $linkColor;
+  }
+  a:hover {
+    color: $linkColorHover;
+  }
+  input, select, textarea {
+  	font-size: $baseFontSize + 1;
+  	font-family: Helvetica,sans-serif;
+    border: 1px solid $inputBorderColor;
+    color: darken($inputPlaceholderColor, 10);
+    padding: 6px 5px;
+    margin: 2px 5px;
+    @include box-shadow ($inputShadow);
+    background-color: $inputBGColor;
+    &:focus {
+      color: $inputActiveColor;
+      background-color: darken($inputBGColor, 8);
+      @include box-shadow (0 0 3px $inputActiveShadowColor, $inputShadow);
+      border: 1px solid $inputActiveBorderColor;
+    }
+  }
+  input,
+  textarea,
+  .capture_inputPlaceholder {
+    width: 268px;
+    color: $inputActiveColor;
+    &::-webkit-input-placeholder {
+       color: darken($inputPlaceholderColor, 10);
+    }
+    &:-moz-placeholder {
+       color: darken($inputPlaceholderColor, 10);
+    }
+    &:-ms-input-placeholder {
+        color: darken($inputPlaceholderColor, 10);
+    }
+  }
+  select {
+    width: 280px;
+  }
+
+  //Buttons
+  .capture_btn,
+  a.capture_btn,
+  button.capture_btn,
+  input.capture_btn,
+  .capture_backButton {
+    @include button-shadow;
+  	&:active {
+  		@include box-shadow($lightShadowTopActive, $lightShadowBottomActive, $innerShadow, 0px 0px 0px 3px rgba(0,0,0,0.1));
+  	}
+  	&:focus {
+  	@extend a.capture_btn;
+  	}
+  	&.capture_btn_full {
+  	 margin: 3px 5px;
+  	 width: 278px;
+  	 padding: 10px 0;
+  	}
+  	&.capture_btn_half {
+  	 width: 40%;
+  	 margin: 3px 5px;
+  	}
+  }
+  .capture_primary, a.capture_primary, button.capture_primary, input.capture_primary {
+  	background-color: $contrastColor;
+  	@include background (linear-gradient(top,$primaryGradientLight,$primaryGradientDark));
+  	@include text-shadow (0 1px 1px rgba(0,0,0,.45));
+  	color: $primaryButtonTextColor;
+  }
+  a.capture_primary:visited,
+  a.capture_primary:link,
+  a.capture_primary:hover {
+  	color: $primaryButtonTextColor;
+  }
+  .capture_secondary, a.capture_secondary, button.capture_secondary, input.capture_secondary {
+  		background-color: $secondaryButtonBGColor;
+  		background-image: none;
+  		color: $secondaryButtonTextColor;
+  		@include text-shadow (none);
+  }
+  a.capture_secondary:visited,
+  a.capture_secondary:link,
+  a.capture_secondary:hover {
+  	color: $secondaryButtonTextColor;
+  }
+  .capture_processing {
+    color: $textColor;
+    &:hover {
+      color: $textColor;
+    }
+  }
+  .capture_backgroundColor .capture_processing:hover {
+    color: $textColor;
+  }
+  .capture_fatal_error {
+    font-size: $baseFontSize - 1;
+    background-color: $errorBGColor;
+    background-position: 10px 5px;
+		@include border-radius (5px);
+  	padding: 5px 5px 5px 35px;
+    border: 1px solid $errorBorderColor;
+    color: $errorTextColor;
+  }
+  .capture_form_error {
+    @extend .capture_fatal_error;
+   	margin-left: 5px;
+  }
+  .capture_backButton {
+    margin: 0;
+    height: 26px;
+    width: 26px;
+    padding: 0;
+  }
+  a.capture_edit {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    margin: 0;
+    padding: 9px 15px 9px;
+  }
+  .capture_provider  li {
+    background-color: $inputBGColor;
+  	@include border-radius (5px);
+    .capture_remove {
+      position: absolute;
+      right: 0;
+      @include opacity (0.5);
+    }
+	}
+  .capture_checkbox,
+  .capture_radio {
+    @extend input;
+  }
+
+/*/ Form Styles /*/
+  .capture_form_item {
+    label {
+      color: $LabelColor;
+    }
+    .capture_tip {
+      color: $tipTextColor;
+    }
+    &.capture_focused .capture_tip {
+      color: $inputActiveColor;
+    }
+    .capture_tip_validating {
+      color: $validatingTextColor;
+    }
+    .capture_tip_validated {
+      color: $validatedTextColor;
+    }
+    .capture_tip_error {
+      color: $errorTextColor;
+    }
+    &.capture_error .capture_radio,
+    &.capture_error .capture_checkbox,
+    &.capture_error input {
+      border: 1px solid $errorTextColor;
+      @include box-shadow ($inputErrorShadow);
+    }
+    &.capture_validating input,
+    &.capture_error input,
+    &.capture_validated input {
+      padding: 6px 27px 6px 5px;
+      width: 246px;
+    }
+    .capture_display_toggle_wrap {
+      font-size: $baseFontSize - 1;
+      line-height: $baseLine - 1;
+      &:hover {
+        background-color: #f6f6f6;
+      }
+    }
+  }
+  .capture_checkbox,
+  .capture_radio,
+  .capture_inputPlaceholder {
+    @extend input;
+    border: 0;
+    width: 268px;
+    margin-left: 5px;
+    padding: 7px 5px;
+    @include box-shadow (none);
+    label {
+      font-size: $baseFontSize;
+    }
+  }
+  .capture_tabs li a {
+  	font-size: $baseFontSize - 1;
+    background-color: darken($secondaryBackgroundColor, 10);
+    @include box-shadow (0 -10px 5px -8px rgba(0, 0, 0, 0.1) inset);
+    font-size: $baseFontSize + 1;
+    width: 105px;
+   	&:visited, &:link, &:hover {
+    	color: lighten($textColor, 20);
+    }
+	}
+  &.capture_toggled a {
+    background-color: $secondaryBackgroundColor;
+    @include box-shadow (0 1px 5px rgba(0, 0, 0, 0.2));
+   	&:visited, &:link, &:hover {
+    	color: $textColor;
+    }
+  }
+  #recaptcha_container .recaptchatable {
+    background-color: $white;
+    border: none !important;
+    @include border-radius (5px);
+    #recaptcha_response_field {
+      border: 1px solid $inputBorderColor !important;
+      color: $inputActiveColor !important;
+      width: 290px !important;
+      margin-left: 0;
+      &:focus {
+        border: 1px solid $inputActiveBorderColor !important;
+      }
+    }
+  }
+  &.capture_addLinkedAccount,
+  &#demo,
+  &#returnSocial,
+  &#returnTraditional {
+    width: 392px;
+  }
+  &#mergeAccounts {
+    width: 510px;
+    .capture_header {
+      color: inherit;
+      text-align: left;
+      background-color: $containerBGColor;
+    }
+  }
+  .capture_signInOption,
+  .capture_createAccountOption {
+    margin-top: 10px;
+  }
+  &#returnTraditional .capture_backgroundColor,
+  .capture_signInOption .capture_backgroundColor,
+  .capture_createAccountOption .capture_backgroundColor {
+    padding: 25px 10px;
+  }
+  .capture_displayName_col {
+    margin: 6px 0 10px 10px;
+    @include inline-block;
+    vertical-align: top;
+  }
+  .capture_mergeCol {
+    width: 43%;
+    @include inline-block;
+    padding: 10px;
+    margin: 10px;
+    position: relative;
+    .capture_popup_container .capture_popup-arrow {
+      left: 100px;
+    }
+  }
+  .capture_mergeProvider {
+    position: absolute;
+    right: 20px;
+    top: 8px;
+  }
+  .capture_mergeExisting_col {
+    padding: 0;
+    .capture_mergeProvider {
+      right: 10px;
+    }
+    .capture_icon_col {
+      margin-left: 0;
+      margin-top: 4px;
+    }
+    .capture_displayName_col {
+      margin-top: 0;
+    }
+  }
+  .capture_mergeAccountForm {
+    margin-left: 0;
+    .capture_form_collection_merge_radioButtonCollection {
+      width: auto;
+      margin: 10px auto;
+      padding: 0;
+      @extend .capture_border;
+      label {
+        margin: 0;
+        padding: 5px 5px 5px 25px;
+        font-size: $baseFontSize + 1;
+        .capture_recommended {
+          position: absolute;
+          right: 3px;
+          top: 3px;
+          text-transform: uppercase;
+          font-weight: 100;
+        }
+      }
+      input {
+        position: absolute;
+        left: 6px;
+        top: 15px;
+      }
+      .capture_toggled {
+        background-color: $contrastColor;
+        &.capture_form_item_merge_radioButtonCollection:first-child {
+          @include border-radius (5px 5px 0 0);
+          border-bottom: 1px solid $white;
+        }
+        &.capture_form_item_merge_radioButtonCollection.capture_toggled:nth-of-type(2) {
+          @include border-radius (0 0 5px 5px);
+          border-top: 1px solid $white;
+        }
+        label {
+          color: $contrastTextColor;
+        }
+      }
+    }
+  }
+  &#returnTraditional .capture_form_item,
+  .capture_signInOption .capture_form_item,
+  .capture_createAccountOption .capture_form_item {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    min-height: 51px;
+    width: 290px;
+  }
+  &#editProfileLayout {
+    width: 940px;
+    background-color: transparent;
+    @include clearfix;
+    padding: 10px;
+    .capture_tabs li a {
+      background-color: $secondaryBackgroundColor;
+    }
+    .capture_tabs li.capture_toggled a {
+      background-color: white;
+    }
+    .contentBoxWhiteShadow form {
+      margin-left: 0;
+    }
+  }
+  .capture-profile-photo {
+    float: left;
+    margin-right: 20px;
+    width: 260px;
+    .capture_profile_section {
+      padding: 10px;
+    }
+    .capture_editProfile_photoManager ul.options {
+        display: block;
+        text-align: center;
+        li {
+          @include inline-block;
+          padding: 0 5px
+        }
+      }
+    }
+    #capture_accountInfo {
+      float: left;
+      width: 660px;
+    }
+  &#linkedAccounts .capture_form_item label {
+    font-size: $baseFontSize + 1;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  &#publicProfile {
+    width: 600px;
+    
+    .capture_provider {
+      margin-top: 25px;
+    }
+    .capture-public-public_summary {
+      margin-bottom: 15px;
+    }
+    .capture-public-displayName {
+      @include inline-block;
+      h1 {
+        font-size: $baseFontSize + 10;
+        color: $bodyHeadingTextColor;
+        padding-top: 0;
+      }
+    }
+    .capture_personal_info {
+      h2 {
+        float: right;
+        font-size: $baseFontSize + 5;
+        padding: 0;
+      }
+    }
+  }
+  .capture_popup_container {
+    background-color: $containerBGColor;
+    border: 1px solid $containerBorderColor;
+    .capture_popup-arrow:after {
+      background: $containerBGColor;
+      border: 1px solid $containerBorderColor;
+    }
+  }
+
+  div#email_tip {
+    color: $errorTextColor;
+  }
+}
+
+.janrain-capture-ui-mobile {
+  .user-photo {
+    background-color: $containerBGColor;
+  }
+}

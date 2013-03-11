@@ -1,0 +1,14 @@
+<div class="wrapper">
+	<div class="tab_bar">
+		<%= tabs_tag :namespace => :tabnav, :open_tabs => { :class => "tab_nav" } do |tab| %>
+		  <%= tab.base	'Base Styles', dashboard_base_path %>
+		  <%= tab.navigation 'Navigation', dashboard_navigation_path %>
+		  <%= tab.grid 'Grid', dashboard_grid_path %>
+		  <%= tab.buttons 'Buttons', dashboard_buttons_path %>
+		  <%= tab.messages 'Alerts & Errors', dashboard_messages_path %>
+		  <%= tab.tables 'Tables', dashboard_tables_path %>
+		  <%= tab.forms 'Forms', dashboard_forms_path %>
+		  <%= tab.wizard 'Wizard', dashboard_wizard_path %>
+		<% end %>
+	</div>
+</div>

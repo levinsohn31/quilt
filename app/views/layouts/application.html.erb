@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quilt</title>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <%= favicon_link_tag 'favicon.ico', :rel => 'icon', :type => 'image/ico' %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <!--[if lte IE 8]>
+	  <%= stylesheet_link_tag "ie", :media => "all" %>
+  <![endif]-->
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+</head>
+<body class="quilt janrain-font">
+<div class="nav_bar" class="clearfix">
+	<div class="wrapper">
+	<%= tabs_tag :open_tabs => { :class => "main_nav" } do |tab| %>
+  	<%= tab.overview	'Overview', quilt_index_path %>
+    <%= tab.widgets 'Widgets', widgets_signin_path %>
+  	<%= tab.dashboard 'Dashboards', dashboard_base_path %>
+  	<%= tab.portals 'Portals', portals_zendesk_path %>
+  	<%= tab.providers 'Providers', providers_path %>
+  	<%= tab.icons 'Icons', icons_path %>
+	<% end %>
+	</div>
+</div>
+<%= yield %>
+<%= javascript_include_tag "application" %>
+</body>
+</html>

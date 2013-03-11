@@ -1,0 +1,26 @@
+<%= render 'tabnav' %>
+<div class="wrapper section">
+	<h2>Zendesk</h2>
+	<div class="grid-block section mt40">
+		<div class="col_12">
+			<h4>Styling Zendesk</h4>
+			<p>Follow these directions to style the zendesk portals to match the Janrain branding.</p>
+			<h4>1. When logged in to Zendesk, under the <b>Settings</b> dropdown, select <b>Extensions</b>.</h4>
+			<h4>2. Add a Widget</h4>
+			<h4>3. Select the <b>Global CSS</b> widget.</h4>
+			<h4>4. Add a Title, set the <b>Avaiable for</b> dropdown to <b>Anyone, including...</b>.</h4>
+			<h4>5. Add the code below to the <b>Content</b> textbox.</h4>
+			<pre class="brush :css">
+				@import url('https://d3hmp0045zy3cs.cloudfront.net/<%= Quilt::VERSION %>/quilt.css');
+			</pre>
+
+			<pre class="brush :js">
+				var quiltHost = (("https:" == document.location.protocol) ? "https://d3hmp0045zy3cs.cloudfront.net" : "http://cdn.quilt.janrain.com");
+				document.write(unescape("%3Cscript src='" + quiltHost + "/<%= Quilt::VERSION %>/zendesk.js' type='text/javascript'%3E%3C/script%3E"));
+				//document.write(unescape("%3Cscript src='" + "http://quilt-dev.janrain.com:3007" + "/devassets/zendesk.js' type='text/javascript'%3E%3C/script%3E"));
+				<!--Load IE stylesheet !-->
+				document.write(unescape("%3C!--[if lte IE 8]%3E%3Clink type='text/css' rel='stylesheet' media='all' href='" + quiltHost + "/<%= Quilt::VERSION %>/ie.css' %3E%3C/script%3E%3C![endif]--%3E"));
+			</pre>
+		</div>
+	</div>
+</div>

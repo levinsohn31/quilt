@@ -1,0 +1,72 @@
+@import "compass/utilities/";
+@import "_mixins.scss";
+@import "compass/css3/";
+@import "_variables";
+
+// Grid functions
+@function grid-width($n) {
+  @return $n * $grid-width - $gutter-width;
+}
+
+@function legacy-grid-width($n) {
+  @return $n * $legacy-grid-width - $gutter-width;
+}
+
+.grid-block {
+    @include pie-clearfix;
+    &.mtop {
+        padding-top: 40px;
+    }
+}
+.section {
+    margin-top: 20px;
+}
+div[class^="col"] {
+    float: left;
+    margin-left: $gutter-width;
+    &:first-child {
+        margin-left: auto;
+    }
+}
+
+div[class*="col_12"] {
+    float: none;
+    margin-left: auto;
+}
+
+div[class*="center-col"],
+div[class*="center_col"] {
+  float: none;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@include grid-columns;
+@include legacy-grid-columns;
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media screen and (max-width : 500px) {
+    div[class^="col"] {
+        width: 100%;
+        float: none;
+        margin: $gutter-width auto auto auto;
+        &:first-child {
+            margin-top: auto;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .grid-block {
+        div[class^="col"] {
+            width: legacy-grid-width(4);
+            margin: $gutter-width auto auto auto;
+        }
+    }
+}
+
+
+
+

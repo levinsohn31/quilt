@@ -1,0 +1,287 @@
+@import "compass/utilities/";
+@import "compass/css3/";
+@import "compass/css3/font-face";
+@import "compass/css3/images";
+@import "_variables.scss";
+@import "_mixins.scss";
+
+.form_item, .form_item_inline {
+	margin-bottom: 10px;
+	@include clearfix;
+	font-size: $basefont +2;
+}
+.form_item_inline {
+	label {
+		width: 23%;
+		padding-right: 2%;
+		@include inline-block;
+		@include box-sizing(border-box);
+	}
+	.input_text, .input_select, .input_textarea, .checkbox {
+		width: 75%;
+		@include inline-block;
+	}
+}
+.input_text, .input_select, .input_textarea, .checkbox {
+    width: 100%;
+    @include box-sizing (border-box);
+    font-size: 16px;
+    padding: 5px 5px 6px;
+	line-height: 1.25;
+    background-color: #fff;
+	@include border-radius (5px);
+	border: 1px solid #ddd;
+	&:focus {
+	  color: $inputActiveColor;
+	  background-color: darken($inputBGColor, 8);
+	  @include box-shadow (0 0 3px $inputActiveShadowColor, $inputShadow);
+	  border: 1px solid $inputActiveBorderColor;
+	}
+}
+.input_text, .input_select, .input_textarea {
+	color: $inputActiveColor;
+	&::-webkit-input-placeholder {
+	 color: darken($inputPlaceholderColor, 10);
+	}
+	&:-moz-placeholder {
+	 color: darken($inputPlaceholderColor, 10);
+	}
+	&:-ms-input-placeholder {
+	  color: darken($inputPlaceholderColor, 10);
+	}
+}
+.tip, .tip_validating, .tip_error {
+	font-size: 12px;
+	padding: 2px 0 0 6px;
+	@include inline-block;
+	vertical-align: middle;
+	width: 300px;
+	*display: block;
+}
+.tip_error {
+	color: #F58002;
+	display: none;
+}
+.tip_validating {
+	color: #aaa;
+    display: none;
+}
+.validating .input_text {
+    background-image: image-url('spinner.gif');
+    background-repeat: no-repeat;
+    background-position: 98% center;
+}
+.error {
+	.input_text, .input_select {
+		border: 1px solid #F58002;
+	}
+	.input_text {
+		background-image: image-url('error.png');
+		background-repeat: no-repeat;
+		background-position: 98% center;
+	}
+}
+.validated .input_text {
+    background-image: image-url('validated.png');
+    background-repeat: no-repeat;
+    background-position: 98% center;
+}
+.validating .tip_validating {
+    vertical-align: middle;
+    @include inline-block;
+}
+.validating .tip {
+    display: none;
+}
+
+.error .tip_error {
+    vertical-align: middle;
+    @include inline-block;
+}
+.error .tip,
+.error .tip_validating {
+    display: none;
+}
+
+.checkbox {
+	position: relative;
+	background-color: #fff;
+	@include border-radius (3px);
+	label {
+		padding-left: 25px;
+	}
+	input {
+		position: absolute;
+		top: 6px;
+		left: 10px;
+		z-index: 1;
+	}
+	.tip, .tip_error {
+		padding: 28px 0 0 310px;
+	}
+	&.error {
+		display:block;
+		height: 100%;
+		& > label {
+			background-image: image-url('error.png');
+			background-repeat: no-repeat;
+			background-position: 98% center;
+		}
+	}
+	&.tip_error {
+		@extend .error;
+		& > label {
+			background: none;
+		}
+	}
+}
+.display_radios {
+	float: right;
+	width: 140px;
+	margin-top: 7px;
+}
+.radio_box {
+	@include inline-block;
+	color: white;
+	@include border-radius (10px);
+	background-color: #ccc;
+	font-size: $basefont - 1;
+	padding: 3px 5px 2px 3px;
+	label {
+		position: static;
+		display: inline;
+		vertical-align: top;
+	}
+	input {
+		padding: 0;
+		margin: 0;
+	}
+	&.dark {
+		background-color: #999;
+	}
+}
+
+.contentBoxWhiteShadow {
+	.input_text, .input_textarea.text, .input_select, .checkbox {
+		background-color: #f6f6f6;
+	}
+	&.checkboxGrayWrapper {
+		margin-bottom: 20px;
+		width: 280px;
+		padding: 0 10px;
+		.form_item {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.toggle {
+	@media only screen {
+		input[type="checkbox"] {
+			position: absolute;
+			@include opacity(0);
+			+ span {
+				vertical-align: middle;
+				width: 48px;
+				height: 17px;
+				color: #fff;
+				text-transform: uppercase;
+				background: #A7A7A7;
+				@include border-radius(4px);
+				@include box-shadow(0 0 4px rgba(0, 0, 0, 0.25) inset);
+				position: absolute;
+				text-indent: -9999px;
+				&:after {
+					content: "no";
+					display: inline-block;
+					@include border-radius(4px);
+					top: 0;
+					right: 0;
+					position: absolute;
+					text-indent: 0;
+					width: 60%;
+					height: 17px;
+					text-align: center;
+					font-size: 10px;
+					font-weight: 700;
+					line-height: 19px;
+					text-shadow:0 -1px rgba(0,0,0,.5);
+				}
+				&:before {
+					display: inline-block;
+					@include border-radius(4px);
+					top: 1px;
+					left: 1px;
+					position: absolute;
+					content: "";
+					width: 40%;
+					height: 15px;
+					@include background(linear-gradient(top,#fff,#ccc));
+					@include box-shadow(0 1px 1px rgba(0,0,0,.75));
+				}
+			}
+			&:checked {
+				+ span {
+					background: #64AE29;
+					@include box-shadow(inset 0 1px 1px rgba(0,0,0,.25),inset 0 0 4px rgba(0,0,0,.2));
+					color: #fff;
+					text-shadow: 0px -1px rgba(0,0,0,.5);
+					&:after {
+						content: "yes";
+						top: 0;
+						left: 0;
+						height: 17px;
+						@include border-radius(4px 0 0 4px);
+						font-size: 10px;
+						font-weight: 700;
+						line-height: 19px;
+					}
+					&:before {
+						top: 1px;
+						right: 1px;
+						left: auto;
+					}
+				}
+			}
+		}
+		label {
+			margin: 4px;
+			cursor: pointer;
+			vertical-align: middle;
+		}
+		&.onoff{
+			input[type="checkbox"] + span:after {
+				content: "off"
+			}
+			input[type="checkbox"]:checked + span:after {
+				content: "on"
+			}
+		}
+		&.yesno{
+			input[type="checkbox"] + span:after {
+				content: "no"
+			}
+			input[type="checkbox"]:checked + span:after {
+				content: "yes"
+			}
+		}
+	}
+}
+.janrain-capture-ui.capture-ui-content .capture_tabs {
+    li {
+      margin-top: 0;
+      a {
+        .janrain-icon-16 {
+          @include opacity (0.8);
+          margin-right: 5px;
+          vertical-align: middle;
+          line-height: 20px;
+        }
+      }
+      &.capture_tab_li_createAccountOption.capture_toggled a,
+      &.capture_tab_li_signInOption.capture_toggled a {
+        background-image: image-url('bg-blue.png');
+        background-repeat: repeat;
+      }
+    }
+  }

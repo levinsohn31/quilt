@@ -1,0 +1,7 @@
+<div class="wrapper">
+	<div class="tab_bar">
+		<%= tabs_tag :namespace => :tabnav, :open_tabs => { :class => "tab_nav" } do |tab| %>
+		  <%= tab.zendesk	'Zendesk', portals_zendesk_path %>
+		<% end %>
+	</div>
+</div>

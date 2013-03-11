@@ -1,0 +1,124 @@
+== Welcome to Quilt
+
+Quilt is a user interface framework to make your life easier (Made with love by the Janrain UX Team). It includes base CSS and HTML for typography, forms, buttons, tables, grids, navigation, documentation, widgets, mobile devices, and more.
+
+== Using Quilt
+
+1. To use the official stable release of quilt, go to http://quilt.janrain.com
+
+== Quilt Development
+
+Before you start to work on Quilt, please be familiar with the following:
+
+* Asset Pipeline: http://guides.rubyonrails.org/asset_pipeline.html
+* Sass: http://sass-lang.com/tutorial.html
+* Compass: http://compass-style.org/reference/compass/
+* CoffeeScript: http://coffeescript.org/
+
+These will bring you up to speed with the frameworks that Quilt is built from, it will also ensure proper conventions are followed.
+
+1. At the command prompt, clone quilt to your computer:
+       git clone git@github.com:janrain/quilt.git   
+
+2. Change directory to <tt>quilt</tt> and run bundle:
+       cd quilt; bundle install
+       
+3. Ensure a JavaScript runtime is installed (see https://github.com/sstephenson/execjs). On Ubuntu:
+       sudo apt-get install nodejs
+
+4. To start the websever:
+       rails server
+
+5. Go to http://localhost:3000/ and you'll see Quilt.
+
+== Description of Quilt
+
+Pay attention to the asset and views structure:
+
+  |-- app
+  |   |-- assets
+  |       |-- images
+  |       |-- javascripts
+  |       |-- quilt
+  |       `-- stylesheets
+  |   `-- views
+  |       `-- layouts
+
+<b>assets/images</b>
+  Contains all image assets for quilt. 
+	
+<b>assets/javascripts</b>
+  Contains only the javascript specifically for the quilt.janrain.com website.
+
+<b>assets/quilt</b>
+  Contains all the quilt css. This is bundled into one css file "quilt.css" and deployed to Amazon.
+	
+<b>assets/stylesheets</b>
+  Contains only the css specifically for the quilt.janrain.com website.
+  
+<b>lib/assets/javascripts</b>
+	Contains all the quilt javascript. This is bundled into one javascript file "quilt.js" and deployed to Amazon.
+	
+
+<b>New Provider Icons</b>
+To add a new provider logo and resize to all appropriate sizes, add a 128px x 128px icon in the assets/images/icons/janrain-providers directory. In the command line run:
+  rake providerimages:resize
+
+== Versioning Quilt
+
+Each version of quilt is compiled into a folder with the corresponding version. 
+
+<b>Patch Release</b>
+  rake vinfo:patch
+
+<b>Minor Release</b>
+  rake vinfo:minor
+  
+<b>Major Release</b>
+  rake vinfo:major
+
+	
+== Deploying Quilt Assets
+
+Deploy Quilt to Amazon S3 <b>Only the UX team can deploy releases</b>:
+
+1. Merge your feature branch back into master and commit changes to git.
+       git checkout master
+       git merge *feature branch*
+       git commit -m 'commit message'
+
+2. Bump the quilt version, see above <tt>Versioning Quilt</tt> for the different commands.
+       rake vinfo:***
+
+3. Commit the modified <tt>version.yml</tt> to the quilt master repo.
+       git add .
+       git commit -m 'Quilt is now version *.*.*'
+       
+4. Deploy assets to Amazon S3. This will compile and upload the assets to the janrain.ui (development) bucket by default.
+       rake assets:deploy
+       
+5. To deploy quilt assets to the production bucket.
+       rake assets:deploy[production]
+
+<b>Environment Variables</b>
+  export AWS_ACCESS_KEY_ID=****
+  export AWS_SECRET_ACCESS_KEY=****
+  
+<b>Tags</b>
+
+After a release, tag the version so we can easily roll back to a previous version if needed. <b>Only the UX team can make a tag</b>
+       git tag -a v*.*.* -m "patch release *.*.*"
+       git push --tags
+
+== Quilt Website
+
+The Quilt website has all the code references, source code, and guides for quilting. The website does not update itself automatically or during any asset deployments. <b>Only the UX team can deploy releases.</b>
+
+Updating the Quilt Website:
+
+1. In your local development environment of quilt, cd to the quilt app.
+       cd /quilt
+       
+2. Capistrano will update the remote server from the master branch in github and restart the web layer.
+       cap deploy
+

@@ -1,0 +1,183 @@
+<%= render 'tabnav' %>
+<div class="wrapper section">
+	<h2>Forms</h2>
+	<div class="grid-block section">
+		<div class="col_6">
+		<h3>Form on Gray</h3>
+			<form class="form">
+				<div class="form_item">
+				  <label for="input" class="form_label">Label</label>
+				  <input type="text" id="input" value="" name="input" class="input_text" placeholder="placeholder">
+				  <div class="tip">This is a tip on how to fill out this field.</div>
+				  <div class="tip_validating">Validating</div>
+				  <div class="tip_error">This is an error.</div>
+				</div>
+
+				<div class="form_item validating">
+				  <label for="input2" class="form_label">Add <code>class="validating"</code> to form_item</label>
+				  <input type="text" value="" name="input2" id="input2" class="input_text" placeholder="placeholder"/>
+				  <div class="tip">This is a tip on how to fill out this field.</div>
+				  <div class="tip_validating">Validating</div>
+				  <div class="tip_error">This is an error.</div>
+				</div>
+
+				<div class="form_item validated">
+				  <label for="input3" class="form_label">Add <code>class="validated"</code> to form_item</label>
+				  <input type="text" value="" name="input3" id="input3" class="input_text" placeholder="placeholder"/>
+				  <div class="tip">This is a tip on how to fill out this field.</div>
+				  <div class="tip_validating">Validating</div>
+				  <div class="tip_error">This is an error.</div>
+				</div>
+
+				<div class="form_item error">
+				  <label for="input4" class="form_label">Add <code>class="error"</code> to form_item</label>
+				  <input type="text" value="" name="input4" id="input4" class="input_text" placeholder="placeholder"/>
+				  <div class="tip">Validated</div>
+				  <div class="tip_validating">Validating</div>
+				  <div class="tip_error">Whoops. You made a mistake.</div>
+				</div>
+				<div class="form_item">
+					<label for="select" class="form_label">Select</label>
+					<select value="" name="select" id="select" class="input_select">
+						<option>Option 1</option>
+						<option>Option 2</option>
+						<option>Option 3</option>
+					</select>
+					<div class="tip">This is a tip on how to fill out this field.</div>
+					<div class="tip_validating">Validating</div>
+					<div class="tip_error">This is an error.</div>
+				</div>
+				<div id="checkbox1" class="form_item checkbox">
+					<label for="checkbox1">
+						<input type="checkbox" value="true" name="checkbox1" id="checkbox1" />
+						Checkbox label here
+					</label>
+					<div class="tip_error"></div>
+				</div>
+			</form>
+			<div class="actions">
+				<input type="button" class="btn primary" value="Submit" /> <input type="button" class="btn standard" value="Cancel" />
+			</div>
+		<h3>Styled Radio Buttons</h3>
+		<div class="form_item">
+		  <div class="display_radios clearfix" style="float: none;">
+			  <div class="radio_box ">
+			    <input type="radio" value="true" name="radio1" id="radio1" />
+			    <label for="label1">label1</label>
+		  	  </div>
+		  	  <div class="radio_box">
+		    	<input type="radio" checked="true/" value="false" name="radio1" id="radio2" />
+		    	<label for="label2">label2</label>
+		      </div>
+		  </div>
+		</div>
+		<div class="form_item">
+			<div class="radio_box ">
+				<input type="radio" value="true" name="radio2" id="radio3" />
+				<label for="label3">label3</label>
+			</div>
+			<div class="radio_box">
+				<input type="radio" checked="true/" value="false" name="radio2" id="radio4" />
+				<label for="label4">label4</label>
+			</div>
+		</div>
+	  <h3>Yes/No Styled Checkbox</h3>
+	  <div class="form_item">
+	  	<div class="toggle yesno">
+	  		<label for="checkbox-0"><input type="checkbox" name="checkbox-0" id="checkbox-0" /><span>checkbox 0</span></label>
+	  	</div>
+	  </div>
+	  <h3>On/Off Styled Checkbox</h3>
+	  <div class="form_item">
+	  	<div class="toggle onoff">
+	  		<label for="checkbox-1"><input type="checkbox" name="checkbox-1" id="checkbox-1" /><span>checkbox 1</span></label>
+	  	</div>
+	  </div>
+	</div>
+	<div class="col_6">
+		<h3>Form in White Shadow Box</h3>
+		<div class="contentBoxWhiteShadow">
+			<form class="form">
+				<div class="form_item">
+				  <label for="input5" class="form_label">Label</label>
+				  <input type="text" id="input5" value="" name="input5" class="input_text" placeholder="placeholder" />
+				  <div class="tip">This is a tip on how to fill out this field.</div>
+				  <div class="tip_validating">Validating</div>
+				  <div class="tip_error">This is an error.</div>
+				</div>
+
+				<div class="form_item validating">
+				  <label for="input6" class="form_label">Add <code>class="validating"</code> to form_item</label>
+				  <input type="text" value="" name="input6" id="input6" class="input_text" placeholder="placeholder"/>
+				  <div class="tip">This is a tip on how to fill out this field.</div>
+				  <div class="tip_validating">Validating</div>
+				  <div class="tip_error">This is an error.</div>
+				</div>
+
+				<div class="form_item validated">
+				  <label for="input7" class="form_label">Add <code>class="validated"</code> to form_item</label>
+				  <input type="text" value="" name="input7" id="input7" class="input_text" placeholder="placeholder"/>
+				  <div class="tip">This is a tip on how to fill out this field.</div>
+				  <div class="tip_validating">Validating</div>
+				  <div class="tip_error">This is an error.</div>
+				</div>
+
+				<div class="form_item error">
+				  <label for="input8" class="form_label">Add <code>class="error"</code> to form_item</label>
+				  <input type="text" value="" name="input8" id="input8" class="input_text" placeholder="placeholder"/>
+				  <div class="tip">This is a tip on how to fill out this field.</div>
+				  <div class="tip_validating">Validating</div>
+				  <div class="tip_error">This is an error.</div>
+				</div>
+				<div class="form_item">
+					<label for="select1" class="form_label">Select</label>
+					<select value="" name="select1" id="select1" class="input_select">
+						<option>Option 1</option>
+						<option>Option 2</option>
+						<option>Option 3</option>
+					</select>
+					<div class="tip">This is a tip on how to fill out this field.</div>
+					<div class="tip_validating">Validating</div>
+					<div class="tip_error">This is an error.</div>
+				</div>
+				<div id="checkbox2" class="form_item checkbox">
+					<label for="checkbox1">
+						<input type="checkbox" value="true" name="checkbox2" id="checkbox2" />
+						Checkbox label here
+					</label>
+					<div class="tip_error"></div>
+				</div>
+			</form>
+			<div class="actions">
+			<input type="button" class="btn primary" value="Submit" /> <input type="button" class="btn standard" value="Cancel" />
+			</div>
+		</div>
+	</div>
+	<div class="col_12">
+		<pre class="brush: html;">
+		<!-- Add class to form_item to display tip divs. Classes include "validated","validating","error". !-->
+		<!-- Text Input !-->
+		<div class="form_item">
+		  <label for="input" class="form_label">Label</label>
+		  <input type="text" id="input" value="" name="input" class="input_text" placeholder="placeholder">
+		  <div class="tip">This is a tip on how to fill out this field.</div>
+		  <div class="tip_validating">Validating</div>
+		  <div class="tip_error">This is an error.</div>
+		</div>
+		<!-- Select !-->
+		<div class="form_item">
+			<label for="select1" class="form_label">Select</label>
+			<select value="" name="select1" id="select1" class="input_select">
+				<option>Option 1</option>
+				<option>Option 2</option>
+				<option>Option 3</option>
+			</select>
+			<div class="tip">This is a tip on how to fill out this field.</div>
+			<div class="tip_validating">Validating</div>
+			<div class="tip_error">This is an error.</div>
+		</div>
+		</pre>
+	</div>
+</div>
+</div>
+

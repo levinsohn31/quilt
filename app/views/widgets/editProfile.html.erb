@@ -1,0 +1,91 @@
+<%= render 'widgetSettings' %>
+       <script type="text/javascript">
+            janrain.settings.capture.flowName = 'editProfileFlow';
+       </script>
+<%= render 'tabnav' %>
+
+
+
+<div class="wrapper">
+    <div style="display:none;" id="editProfile">
+        <div class="capture_header">
+            <h1>Edit Your Account</h1>
+        </div>
+        <div class="capture-profile-photo">
+            <h3>Profile Photo</h3>
+            <div class="capture_profile_section contentBoxWhiteShadow clearfix">
+                {* photoManager *}
+            </div>
+            <h3>Linked Accounts</h3>
+            <div class="capture_profile_section contentBoxWhiteShadow clearfix">
+                {* linkedAccounts *}
+                {* linkAccountContainer *}
+                    <div class="capture_header">
+                        <h1>Link your accounts</h1>
+                    </div>
+                    <h2>Allows you to sign in to your account using that provider in the future.</h2>
+                    <div class="capture_signin">
+                        {* loginWidget *}
+                    </div>
+                {* /linkAccountContainer *}
+            </div>
+            <!-- Only show this if it was from a traditional login !-->
+            <h3 class="janrain_traditional_account_only">Password</h3>
+            <div class="janrain_traditional_account_only contentBoxWhiteShadow capture_profile_section">
+                <a href="#" data-capturescreen="changePassword">Change Password</a>
+            </div>
+        </div>
+        <div id="capture_accountInfo">
+            <h3>Account Info</h3>
+            <div class="contentBoxWhiteShadow capture_profile_section">
+                {* editProfileForm *}
+                    <div class="capture_editCol">
+                        {* displayName *}
+                        {* profileBlurb *}
+                        {* name *}
+                        {* email *}
+                        {* phone *}
+                        {* location *}
+                        {* addressDrop *}
+                        {* gender *}
+                        {* birthdate *}
+                        <div class="capture_form_item">
+                        {* submitButton *}
+                        {* savedProfileMessage *}
+                        </div>
+                    </div>
+                {* /editProfileForm *}
+            </div>
+        </div>
+    </div>
+    <div style="display:none;" id="changePassword">
+        <div class="capture_header">
+            <h1>Change password</h1>
+        </div>
+        {* newPasswordForm *}
+            {* oldpassword *}
+            {* newpassword *}
+            {* newpasswordConfirm *}
+            <div class="capture_footer">
+                {* saveButton *}
+            </div>
+        {* /newPasswordForm *}
+    </div>
+    <div style="display:none;" id="changePasswordSuccess">
+        <div class="capture_header">
+            <h1>You did it!</h1>
+        </div>
+          <p>Your password has been successfully changed.</p>
+        <div class="capture_footer">
+            <a href="#" class="capture_btn capture_secondary">Close</a>
+        </div>
+    </div>
+    <div style="display:none;" id="addLinkedAccount">
+        <div class="capture_header">
+            <h1>Link another account</h1>
+        </div>
+        <h3>Link any of these providers with your account.<br />Allows you to sign in to your {* siteName *} account using that provider in the future.</h3>
+        {* loginWidget *}
+    </div>
+<div id="janrainEngageEmbed"  style="display:none;"></div>
+</div>

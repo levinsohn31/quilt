@@ -1,0 +1,177 @@
+@import "compass/utilities/";
+@import "compass/css3/";
+@import "_base64font";
+@import "_variables.scss";
+@import "_mixins.scss";
+
+#wrapper,.wrapper {
+	width: 960px;
+	margin: 0 auto;
+	float: none;
+	position: relative;
+	@media screen and (max-width: 960px) {
+		width: auto;
+	}
+}
+
+// Global Navigation - used across all Janrain sites
+#global_nav,.global_nav {
+  width: 100%;
+  background-color: $navy;
+  @media screen and (max-width: 960px) {
+  	padding: 0 10px;
+  	width: auto;
+  }
+  font-family: "proxima-nova", helvetica;
+  font-size: 14px;
+  font-weight: normal;
+  ul {
+  	background: image-url('logo.png') no-repeat 5px center;
+  	@include ul(none, 0 0 0 98px, auto);
+  	height: 45px;
+  	text-align: right;
+  	li {
+  		@include inline-block;
+  	  a {
+      	color: #929FB2;
+      	@include text-shadow (0 0 1px $black);
+      	@include inline-block;
+      	padding: 14px 0 14px 15px;
+      	font-size: 0.857em;
+      	font-weight: 400;
+      	text-transform: uppercase;
+      	text-decoration: none;
+      	&:hover {
+      	  color: $white;
+      	}
+      	&.selected {
+      	  color: white;
+      	  font-weight: normal;
+      	}
+      	.avatar{
+      		height: 20px;
+      		width: 20px;
+      		vertical-align: middle;
+      		margin-right: 5px;
+      		margin-top:-5px;
+      		@include border-radius(3px);
+      		display: inline-block;
+      		overflow: hidden;
+      		background: rgba(0,0,0,.2);
+			img {
+				width: 20px;
+			}
+      	}
+  		}
+  	 	&.dropdown {
+  	 		&.selected {
+  	 			.subnav-wrap {
+  	 				display: block;
+  	 			}
+  	 		}
+  	 		position: relative;
+  	 		.subnav-wrap {
+    			display: none;
+				}
+				.subnav-wrap {
+					position: absolute;
+					width: 150px;
+				}
+				.subnav-arrow {
+    			background: image-url('nav_arrow.png') no-repeat scroll left -65px;
+	  		  display: block;
+	  		  height: 15px;
+					position: absolute;
+	  		  left: 11px;
+	  		  top: -12px;
+					width: 50px;
+					z-index: 106;
+    		}
+				.subnav {
+					position: relative;
+					z-index: 105;
+					display: block;
+					background: #127FBF;
+					@include box-shadow (inset 0 1px rgba(255,255,255,.1),inset 0 -1px rgba(0,0,0,.1),0 1px 1px rgba(0,0,0,.2));
+					@include border-radius(5px);
+					@include ul(none, 5px 0, -2px 0 0 0);
+					height: auto;
+					text-align: left;
+					li {
+						display: block;
+						a {
+							display: block;
+							//width: 100%;
+							padding: 5px 10px;
+							text-transform: capitalize;
+							font-size: 1em;
+							color: #C4DFEF;
+							text-shadow: 0 1px rgba(0,0,0,.1);
+							&:hover {
+								color: #fff;
+								background: #146EA4;
+								@include transition(all, 0.3s);
+							}
+						}
+					}
+			}
+			}
+	}
+  }
+}
+//Breadcrumbs
+.breadcrumbs {
+	margin: 10px 0;
+	float: left;
+	@include clearfix;
+	font-size: $basefont - 1;
+	li {
+		list-style: none;
+		float: left;
+		a {
+		  display: block;
+		  padding: 5px 25px 5px 0;
+		  color: $darkBlueText;
+		  text-decoration: none;
+		  position: relative;
+		  &:hover {
+		  	color: #132532;
+		  }
+		  &:after {
+		    content:"";
+		    display: block;
+		    position: absolute;
+		    right: 10px;
+		    height: 5px;
+		    width: 5px;
+		    top: 10px;
+		    @include rotate(45deg);
+		    border-top: 1px lighten($darkBlueText, 40) solid;
+		    border-right: 1px lighten($darkBlueText, 40) solid;
+		  }
+		}
+	}
+}
+
+.support-button {
+	float: right;
+	padding: 6px;
+	height: 28px;
+	margin: 0 8px;
+	a {
+	  line-height: 28px;
+    color: #273846;
+    text-decoration: none!important;
+    &:hover {
+    	color: #132532;
+    	text-decoration: underline
+    }
+	}
+}
+.help-icon {
+    display: inline-block;
+    vertical-align: middle;
+    height: 16px;
+    width: 16px;
+    margin: 6px 5px;
+}

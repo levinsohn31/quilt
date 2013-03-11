@@ -1,0 +1,226 @@
+@import "_widget-variables";
+@import "compass/css3/";
+.janrain_close_confirm_container {
+  background-color: black;
+  @include opacity (0.85);
+}
+#janrainModal .capture_header .capture_backButton {
+  top: -3px;
+  height: 30px;
+  border: 3px solid #008CC5 !important;
+}
+#janrainModal .capture-ui-content .capture_footer,
+#janrainModal .capture-ui-content .capture_header {
+    _padding-left: 20px;
+    _padding-right: 20px;
+}
+#janrainModal #demo {
+    width: 392px;
+}
+#janrainModal .capture-ui-content .capture_form_item {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.janrain-capture-ui {
+  select {
+    margin-bottom: 7px;
+  }
+  .inline {
+    @include inline-block;
+    vertical-align: middle;
+  }
+  .capture_backgroundColor {
+    zoom: 1;
+  }
+  a.capture_btn, button.capture_btn, input.capture_btn, .capture_backButton {
+    font-size: $baseFontSize + 1 !important;
+    padding: 10px 15px !important;
+    margin: 10px 5px !important;
+    border: none !important;
+
+  }
+  a.capture_primary, button.capture_primary, input.capture_primary {
+    background-color: $contrastColor;
+    color: $primaryButtonTextColor;
+    width: auto !important;
+    &:focus {
+      color: $primaryButtonTextColor;
+      background-color: $contrastColor;
+    }
+  }
+  a.capture_secondary, button.capture_secondary, input.capture_secondary {
+      background-color: $secondaryButtonBGColor;
+      color: $secondaryButtonTextColor;
+      vertical-align: middle;
+  }
+  .capture_form_item {
+    .capture_display_radios {
+      float: none;
+      @include inline-block;
+      vertical-align: top;
+      margin-top: 5px !important;
+      font-size: $baseFontSize - 1;
+      .capture_radio_box {
+        label {
+          border: 1px solid $inputBorderColor;
+          cursor: pointer;
+          background-color: $white;
+          @include inline-block;
+          width: 80px;
+          vertical-align: middle;
+          padding-left: 0;
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+        &.capture_toggled label {
+          background-color: $inputBorderColor;
+          color: $white;
+        }
+        input {
+          clip: none;
+          position: static;
+          background: none transparent;
+          width: auto;
+          @include inline-block;
+          vertical-align: middle;
+          margin: 0 5px;
+          border: none;
+        }
+      }
+    }
+  }
+  .capture_btn_half, a.capture_btn_half, button.capture_btn_half, input.capture_btn_half {
+    @include box-sizing (content-box);
+    margin: 0;
+    width: 45%;
+  }
+  .capture_btn_full {
+    margin: 0;
+    @include box-sizing (content-box);
+    width: 95%;
+  }
+
+  .capture_profile_section {
+    position: static;
+  }
+
+  .capture_text_input, .capture_select, .capture_textarea {
+    margin: 2px 0;
+    outline: none;
+  }
+
+  .capture_text_input,
+  .capture_textarea,
+  .capture_select,
+  .capture_inputPlaceholder {
+    padding: 6px 3% 6px 2%;
+    width: 95%;
+    @include inline-block;
+    @include box-sizing (content-box);
+  }
+  .capture_validating .capture_text_input,
+  .capture_error .capture_text_input,
+  .capture_validated .capture_text_input {
+    padding: 6px 10% 6px 2%;
+    width: 88%;
+    @include box-sizing (content-box);
+  }
+
+  .capture_checkbox,
+  .capture_radio {
+    padding: 7px 3% 7px 2%;
+    @include box-sizing (content-box);
+  }
+  .capture_form {
+    margin: 0;
+  }
+  .capture_display_toggle_wrap .capture_display_toggle_options {
+    width: 90px;
+  }
+  .capture_photoDisplay .default,
+  .capture_editProfile_photoManager .default,
+  .capture_photoDisplay .male,
+  .capture_editProfile_photoManager .male {
+      background-image: image-url('profile_default.png');
+    }
+  .capture_photoDisplay .female,
+  .capture_editProfile_photoManager .female {
+      background-image: image-url('profile_female.png');
+    }
+
+  .radio-input {
+    border: 0 !important;
+    padding: 0 !important;
+    background-color: transparent !important;
+  }
+  .capture_checkbox, .capture_radio {
+    input {
+      @include inline-block;
+      vertical-align: middle;
+      border: 0;
+      padding: 0 !important;
+      background: transparent none !important;
+      width: auto !important;
+    }
+    &:focus {
+      border: 0;
+    }
+  }
+  .capture_form_collection input {
+    border: none;
+  }
+  .capture_datePicker_wrapper {
+    width: 200px;
+    z-index: 99999999 !important;
+  }
+  .capture_datePicker_mainTarget .capture_text_input {
+    width: 84%;
+    vertical-align: middle !important;
+  }
+  .capture_datePicker_mainTarget .capture_dateselect_year {
+    width: 31%;
+    vertical-align: middle !important;
+  }
+  .capture_datePicker_previousMonthButton,
+  .capture_datePicker_nextMonthButton {
+    border: none;
+  }
+  .capture_datePicker_monthButtons {
+    top: 2px;
+    line-height: 18px;
+  }
+  .capture_datePicker_monthTable {
+    td {
+      @include box-sizing (content-box);
+    }
+    a:visited,
+    a:link {
+      width: 98%;
+      padding: 1%;
+      @include box-sizing (content-box);
+    }
+  }
+/*IE */ 
+  .capture_popup_container {
+    left: 140px;
+    top: -11px;
+    .capture_popup-arrow {
+      position: absolute;
+      top: 10px;
+      left: -17px;
+      border-style: solid;
+      border-width: 8px;
+      @include inline-block;
+      height: 0;
+      margin: 0;
+      width: 0;
+      border-color: transparent $containerBorderColor transparent transparent;
+      z-index: 2;
+    }
+  }
+}
+/* Start Icon Sprites */
+@import "providers-ie.scss";
+@import "icon-font-ie.scss";
+/* End Icon Sprites */

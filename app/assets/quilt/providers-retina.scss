@@ -1,0 +1,38 @@
+@import "_mixins.scss";
+@import "_variables.scss";
+@import "compass/css3/";
+// Produces icon classes including transparent and grayscale.
+// Provider name is required to generate class and locate correct asset.
+@mixin icons-janrain-provider {
+	@each $iconName in $providers {
+		[class*="janrain-provider-icon-"].janrain-provider-icon-#{$iconName} {
+			background-image: image-url('icons/janrain-providers/#{$iconName}.png');
+		}
+		[class*="janrain-provider-icon-"].janrain-provider-icon-grayscale-#{$iconName} {
+			background-image: image-url('icons/janrain-providers/grayscale/#{$iconName}.png');
+		}
+	}
+}
+//change twitter logo to have a bg for dark bg site/one row widget
+@mixin twitter-bg {
+	[class*="janrain-provider-icon-"].janrain-provider-icon-twitter.janrain-provider-icon-bg {
+		background-image: image-url('icons/janrain-providers/twitter_bg.png');
+	}
+}
+// width/height, border-radius
+@media
+only screen and (-webkit-min-device-pixel-ratio: 1.1),
+only screen and (min-resolution: 100dpi) {
+
+*[class*="janrain-provider-icon-"] {
+  @include background-size (cover);
+}
+
+//Generates the classes needed from the provider list above
+	@include icons-janrain-provider;
+
+//Generates the classes for providers that need a white bg for a dark bg site
+	@include twitter-bg;
+
+}
+

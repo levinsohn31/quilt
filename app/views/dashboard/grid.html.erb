@@ -1,0 +1,210 @@
+<%= render 'tabnav' %>
+<div class="wrapper section">
+	<h2>Grid Layout</h2>
+	<div class="grid-block section mt40">
+		<div class="col_6">
+			<h3>Default grid</h3>
+			The default grid system is a flexible 12-column grid.
+			<h3>Example grid markup</h3>
+	As shown below, a basic layout can be created by using any number of column classes whose numbers add up to 12. See the examples below for more variations.
+			<h3>Centered Columns</h3>
+	Include a special class to remove margin and center any column block.
+		</div>
+		<div class="col_6">
+			<h3>Get the code</h3>
+			<pre class="brush: html;">
+				<!-- Two column layout !-->
+				<div class="grid-block">
+					<div class="col_6">2</div>
+					<div class="col_6">2</div>
+				</div>
+				<!-- 3 column layout with sidebar !-->
+				<div class="grid-block">
+					<div class="col_8">8</div>
+					<div class="col_4">4</div>
+				</div>
+				<!-- Centered block !-->
+				<div class="col3 center_col">Centered 8</div></pre>
+		</div>
+
+	</div>
+
+	<div class="show-grid">
+		<div class="grid-block">
+			<div class="col_12">12</div>
+		</div>
+		<div class="grid-block">
+			<div class="col_10">10</div>
+			<div class="col_2">2</div>
+		</div>
+		<div class="grid-block">
+			<div class="col_8">8
+				<div class="show-grid">
+					<div class="grid-block">
+						<div class="col_12">12</div>
+					</div>
+				</div>
+			</div>
+			<div class="col_4">4</div>
+		</div>
+		<div class="grid-block">
+			<div class="col_7">7</div>
+			<div class="col_3">3</div>
+			<div class="col_2">2</div>
+		</div>
+		<div class="grid-block">
+			<div class="col_6">6</div>
+			<div class="col_6">6</div>
+		</div>
+		<div class="grid-block">
+			<div class="col_4">4</div>
+			<div class="col_4">4</div>
+			<div class="col_4">4</div>
+		</div>
+		<div class="grid-block">
+			<div class="col_3">3</div>
+			<div class="col_3">3</div>
+			<div class="col_3">3</div>
+			<div class="col_3">3</div>
+		</div>
+		<div class="grid-block">
+			<div class="col_1">1</div>
+			<div class="col_1">1</div>
+			<div class="col_1">1</div>
+			<div class="col_1">1</div>
+			<div class="col_1">1</div>
+			<div class="col_1">1</div>
+			<div class="col_1">1</div>
+			<div class="col_1">1</div>
+			<div class="col_1">1</div>
+			<div class="col_1">1</div>
+			<div class="col_1">1</div>
+			<div class="col_1">1</div>
+		</div>
+		<div class="grid-block">
+			<div class="col_8 center_col">Centered 8</div>
+		</div>
+	</div>
+
+<!-- Legacy Grid
+	<div class="show-grid">
+	<div class="grid-block">
+		<div class="col4">1</div>
+	</div>
+	<div class="grid-block">
+		<div class="col3">3</div>
+		<div class="col1">1</div>
+	</div>
+	<div class="grid-block">
+		<div class="col2">2</div>
+		<div class="col2">2</div>
+	</div>
+	<div class="grid-block">
+		<div class="col125">3</div>
+		<div class="col125">3</div>
+		<div class="col125">3</div>
+	</div>
+	<div class="grid-block">
+		<div class="col250">6</div>
+		<div class="col125">3</div>
+	</div>
+	<div class="grid-block">
+		<div class="col1">4</div>
+		<div class="col1">4</div>
+		<div class="col1">4</div>
+		<div class="col1">4</div>
+	</div>
+	<div class="grid-block">
+		<div class="col3">3
+			<div class="show-grid">
+				<div class="grid-block">
+					<div class="col125">1</div>
+					<div class="col125">1</div>
+					<div class="col125">1</div>
+				</div>
+			</div>
+		</div>
+		<div class="col1">1</div>
+	</div>
+	<div class="grid-block">
+    	<div class="col3 center_col">Centered Block 75% width</div>
+  </div>
+	</div>
+ !-->
+	<div class="grid-block section">
+		<div class="col_6">
+		<h3>Layout Background Colors</h3>
+			<div class="contentBoxWhite">
+				Standard White Content Box
+			</div>
+			<div class="section">
+				<div class="contentBoxWhiteShadow">
+					White Shadow Box
+				</div>
+			</div>
+			<div class="section">
+				<div class="contentBoxBlue">
+					Blue Content Box
+				</div>
+			</div>
+			<div class="section">
+				<div class="contentBoxDarkBlueTexture">
+					Dark Blue Texture Content Box
+				</div>
+			</div>
+			<div class="section">
+				<div class="contentBoxDarkBlue">
+					Dark Blue Content Box (no texture)
+				</div>
+			</div>
+			<div class="section">
+				<div class="contentBoxDarkBlue">
+					Dark Blue Texture Content Box with Feature Box
+					<div class="janrain_feature_box">This is a featured box</div>
+				</div>
+			</div>
+			<div class="section">
+				<div class="contentBoxWhiteShadow noise">
+					Noisy White Content Box
+				</div>
+			</div>
+			<div class="section">
+				<div class="contentBoxWhiteShadow noise">
+					<h5>h5. Heading</h5>
+					Noisy White Content Box w/ h5 heading
+				</div>
+			</div>
+		</div>
+		<div class="col_6">
+			<h3>Get the code</h3>
+			<pre class="brush: html; toolbar: false">
+				<div class="contentBoxWhite">
+					Standard White Content Box
+				</div>
+				<div class="contentBoxWhiteShadow">
+					White Shadow Box
+				</div>
+				<div class="contentBoxDarkBlueTexture">
+					Dark Blue Texture Content Box
+				</div>
+				<div class="contentBoxDarkBlue">
+					Dark Blue Content Box (no texture)
+				</div>
+				<div class="contentBoxDarkBlue">
+					<div class="janrain_feature_box">This is a feature box.</div>
+				</div>
+				<div class="contentBoxWhiteShadow noise">
+					Noisy White Content Box
+				</div>
+				<div class="contentBoxWhiteShadow noise">
+					<h5>h5. Heading</h5>
+					Noisy White Content Box w/ h5 heading
+				</div>
+			</pre>
+		</div>
+	</div>
+</div>
+
+
+
+

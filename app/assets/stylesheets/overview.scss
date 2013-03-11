@@ -1,0 +1,16 @@
+@import 'compass/css3';
+
+body.quilt {
+	#quilt-overview {
+		.contentBoxDarkBlueTexture {
+			@include border-radius(0px);
+			padding: 50px 0px;
+		}
+	}
+	#quilt-url {
+		
+	}
+	.section.mt40 {
+		margin-top: 40px;
+	}
+}

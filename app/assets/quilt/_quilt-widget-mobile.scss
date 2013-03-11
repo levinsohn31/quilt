@@ -1,0 +1,110 @@
+@import "compass/css3/";
+@import "_widget-variables";
+
+.janrain_close_confirm_container {
+	@include border-radius(0);
+  .janrain_close_confirm {
+    margin: 150px 0;
+    .janrain_modal_confirm,
+    .janrain_modal_cancel {
+      width: 35%;
+    }
+  }
+}
+
+.janrain-capture-ui.janrain-capture-ui-mobile {
+  .capture_fatal_error {
+		@include border-radius (0);
+  }
+  .capture_form_error {
+    @extend .capture_fatal_error;
+  }
+	.capture_btn_full, .capture_btn_full:active {
+    width: 100%;
+    padding: 10px 0;
+    margin: 3px 0;
+    @include box-sizing (border-box);
+	}
+  .capture_signin .capture_tabCollection_subhead h2 {
+    padding-bottom: 0;
+  }
+  .capture_checkbox, .capture_radio {
+    margin-top: 10px;
+  }
+  .capture_profile_section {
+    margin-bottom: 0;
+  }
+  .capture_form {
+    margin-left: 0;
+  }
+  .capture_form_collection {
+    width: 100%;
+    margin: 10px auto;
+    .capture_form_item {
+      width: auto;
+      padding: 0;
+    }
+  }
+  .capture_submenu {
+    background-color: $white;
+    list-style-type: none;
+    margin: 15px auto 10px;
+    padding: 0;
+    width: 99%;
+    @include box-sizing (border-box);
+    @include border-radius (5px);
+    @include box-shadow($lightShadowTop, 0px 0px 0px 3px rgba(0,0,0,0.1));
+    li:last-child {
+      @include border-radius (5px);
+      border-bottom: none;
+      @include box-shadow($darkShadowBottom);
+    }
+    a {
+     display: block;
+     padding: 10px;
+     text-decoration: none;
+     position: relative;
+     border-bottom: 1px $inputBorderColor solid;
+    }
+    .janrain-icon-forward {
+      font-size: 20px;
+      line-height: 20px;
+      position: absolute;
+      right: 10px;
+      top: 8px;
+    }
+  }
+  .capture_form_item {
+    padding: 10px 0;
+    margin: 0 auto;
+    &.capture_btn_wrap {
+      text-align: right;
+      margin-right: 10px;
+      min-height: 0;
+      padding: 0;
+      position: relative;
+      .capture_btn {
+        @include box-shadow (none);
+        padding: 8px;
+        position: absolute;
+        right: 8px;
+        top: -41px;
+      }
+    }
+    &.capture_checkbox {
+      padding: 6px 5px;
+      margin-left: 15px;
+      border: 1px solid $inputBorderColor;
+    }
+    &.capture_nameBlock .capture_form_item,
+    &.capture_addressBlock .capture_form_item {
+      margin-bottom: 0;
+      min-height: 0;
+      border-bottom: 0;
+      padding: 0;
+      .capture_display_toggle_wrap {
+        top: -5px;
+      }
+    }
+  }
+}

@@ -1,0 +1,400 @@
+//Wizard
+
+.title-bar, .step-bar {
+  @include border-radius (5px);
+  @include box-shadow ($innerShadow);
+	background-repeat: repeat;
+	margin: 15px 0 0 0;
+  color: $white;
+  padding: 8px;
+  @include box-sizing (border-box);
+	@include pie-clearfix;
+}
+.title-bar .btn {
+  margin: 0;
+}
+.title-bar p {
+  line-height: 27px;
+  margin: 0;
+}
+.step-bar {
+  padding: 0;
+}
+// All styles relating to the coloring of title bars
+.title-bar-dark {
+  background-color: #888;
+}
+.title-bar-blue {
+  background-color: #647C8B;
+  .step li:after {
+    border-left: 25px solid #647C8B;
+  }
+  .step li.active {
+    background-color: #3E515F;
+    &:after {
+     border-left: 25px solid #3E515F;
+    }
+  }
+}
+.title-bar-blue-transparent {
+  background-color: rgba(#647C8B,0.5);
+}
+.title-bar-light {
+  background-color: lighten(#7B8A93, 10);
+  @include box-shadow (none);
+}
+// End title bar coloring
+
+// Inner components of title bars
+
+.has-sub {
+  @include border-radius (5px 5px 0 0);
+  .step li:first-child {
+   @include border-radius(5px 0 0 5px);
+  }
+}
+// End Inner components of title bars
+
+.step {
+  @include ul (none, 0, 0);
+  overflow: hidden;
+  li {
+    color: $white;
+    position: relative;
+    float: left;
+    @include text-shadow (0 1px 0 $grayDarker);
+    text-align: center;
+    &:first-child {
+      @include border-radius (5px 0 0 0);
+      a {
+        padding-left: 10px;
+        &:before {
+          margin-left: -10px;
+        }
+      }
+    }
+    a {
+      color: $white;
+      text-decoration: none;
+      padding: 12px 0 12px 35px;
+      min-width: 100px;
+      @include box-shadow (18px 30px 19px 3px rgba(0, 0, 0, 0.2));
+      text-align: center;
+      position: relative;
+      display: block;
+      float: left;
+      z-index: 3;
+    }
+    &:after {
+      content: " ";
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: 50px solid transparent;
+      border-bottom: 50px solid transparent;
+      border-left: 25px solid #888;
+      position: absolute;
+      top: 50%;
+      margin-top: -50px;
+      left: 100%;
+      z-index: 2;
+    }
+    &:before {
+      content: " ";
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: 50px solid transparent;
+      border-bottom: 50px solid transparent;
+      border-left: 25px solid rgba(0,0,0,0.2);
+      position: absolute;
+      top: 50%;
+      margin-top: -50px;
+      margin-left: 1px;
+      left: 100%;
+      z-index: 1;
+    }
+    &.active {
+      background-color: #666;
+      a {
+        @include box-shadow (none);
+        @include text-shadow (0 -1px 0 $grayDarker);
+      }
+      &:after {
+        border-left: 25px solid #666;
+       }
+    }
+  }
+}
+
+// Adds an arrow to the bottom of active classes
+.step .active a:before {
+  font-family: 'janrain-icons';
+  content: "\e007";
+  font-size: 30px;
+  position: absolute;
+  bottom: -2px;
+  line-height: inherit;
+  padding-top: 15px;
+  height: 10px;
+  width: 26px;
+  left: 50%;
+  @include text-shadow (0 -1px 4px $grayDarker);
+}
+
+.title-nav {
+  @include text-shadow (0 -1px 0 $grayDarker,0 0 10px rgba(255, 255, 255, 0.8));
+  @include pattern;
+  @include border-radius (5px);
+  @include inline-block;
+  @include pie-clearfix;
+  @include box-shadow (0 1px 1px $grayDarker inset, 0 2px 2px rgba(0,0,0,0.2) inset);
+  padding: 1px;
+  border: 0;
+  .nav-label {
+    padding: 3px 10px;
+    @include inline-block;
+  }
+}
+
+// input type="radio" with radio hidden and label that changes on checked state
+.radio-toggle {
+  @include pie-clearfix;
+}
+.radio-toggle .radio {
+  @include border-radius (4px);
+  float: left;
+  &:first-child > label {
+    @include border-radius (4px 0 0 4px);
+  }
+  &:last-child > label {
+    @include border-radius (0 4px 4px 0);
+    margin-right: 0;
+  }
+}
+
+.toggle-item {
+  position: absolute;
+  clip:rect(0 0 0 0);
+  & ~ label {
+    @include inline-block;
+    margin-right: 1px;
+  }
+  &:checked ~ label {
+    background-color: transparent;
+    @include background-image(radial-gradient($blue -10px, rgba(#000, 0) 35px));
+    @include box-shadow (none);
+    color: $blue;
+    @include text-shadow (0 0 1px rgba(0,0,0,0.7));
+  }
+}
+
+.title-bar-footer {
+  background-color: #fff;
+  @include pie-clearfix;
+  @include box-sizing (border-box);
+  @include border-radius (0 0 5px 5px);
+  @include box-shadow (0 -1px 0 0 rgba(0, 0, 0, 0.1) inset);
+  padding: 8px;
+  margin-top: 0;
+  color: $grayDark;
+  @include text-shadow (none);
+}
+
+.subnav-bar {
+  background: #FFF;
+  @include box-shadow (0 1px 1px rgba(0,0,0,.1));
+  @include pie-clearfix;
+  padding: 10px;
+  color: $grayDarker;
+  @include text-shadow (0 1px 0 #fff);
+  margin-bottom: 20px;
+}
+
+.title-nav-search {
+  position: relative;
+  .search-input {
+    background: rgba(26, 44, 58, .5);
+    @include border-radius(4px);
+    @include box-shadow(inset 0 0 2px rgba(0,0,0,.2));
+    font-size: 1em;
+    font-weight: 100;
+    color: #fff;
+    color: rgba(255,255,255,.5);
+    border: none;
+    &:focus {
+      color: #fff;
+      @include transition(all, 0.1s);
+    }
+  }
+}
+
+.accordion,
+.provider,
+.list {
+  @include ul (none, 0, 0);
+  li {
+    @include hr;
+    position: relative;
+    padding: 8px 10px;
+    @include text-shadow (0 1px rgba(#fff,.8));
+    cursor: pointer;
+  }
+  span {
+    margin: 0 10px 0 0;
+  }
+  .active {
+    background-color: $green;
+    @include text-shadow (0 -1px rgba(#000,.3));
+    @include box-shadow ($innerShadow);
+  }
+}
+.provider li,
+.list li {
+  &.active,
+  &.active,
+  &.active:hover {
+    color: $white;
+  }
+}
+
+.accordion .active {
+  background-color: transparent;
+  @include box-shadow (none);
+  padding: 0;
+  font-size: 14px;
+  border-bottom: 0;
+  .title {
+    padding: 8px 10px;
+    @include background(linear-gradient(top,#82CD48,#4E9A44));
+    @include text-shadow (0 -1px rgba(#000,.2));
+    @include border-radius (3px);
+    color: $white;
+  }
+}
+.accordion li:before,
+.accordion li.active:before {
+  font-family: janrain-icons;
+  content: '\e023';
+  font-size: 16px;
+  position: absolute;
+  right: 5px;
+  top: 10px
+}
+.accordion li.active:before {
+  content: '\e008';
+  color: $white;
+}
+
+.accordion-info {
+/*  display: none; */
+  height: 0;
+  overflow: hidden;
+  margin-left: 10px;
+}
+
+.accordion li.active .accordion-info {
+  display: block;
+  @include contentBox (#fff);
+  @include box-shadow (0 1px 1px rgba(0,0,0,.1));
+  @include border-radius (0 0 5px 5px);
+  @include text-shadow (none);
+  height: auto;
+  overflow: visible;
+  margin: 0;
+}
+
+.quick-links {
+	@include ul (none, 0, 0);
+    li {
+      @include box-shadow (0 1px 0 0 rgba(255, 255, 255, 0.8) inset ,0 1px 0 0 rgba(255, 255, 255, 0.8));
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-width: 1px 0;
+      padding-left: 35px;
+      position: relative;
+      span {
+        position: absolute;
+        top: 7px;
+        left: 10px;
+      }
+  	}
+  a {
+    color: #666;
+    display: block;
+    padding: 0 0 5px 0;
+    h3 {
+        color: #666;
+        font-weight: 700;
+        padding: 5px 0;
+        text-shadow: 0 1px rgba(255,255,255,.75);
+    }
+    &:hover {
+      h3 {
+        color: #333;
+      }
+      color: #333;
+    }
+  }
+}
+.tabs-list {
+	@include ul (none, 0, 0);
+	li {
+		border-bottom: 1px solid rgba(0,0,0,.1);
+      	@include box-shadow(0 1px 0 0 rgba(255,255,255,.5));
+      	@include border-radius (4px);
+    	a {
+        	font-size: 1em;
+        	color: #777;
+        	display: block;
+        	padding: 6px 10px;
+        	font-weight: 700;
+        	&:hover {
+        		color: #333;
+        		background: rgba(255,255,255,.5);
+        	}
+      	}
+		&:last-child{
+			border: none;
+			@include box-shadow (none);
+		}
+		&.selected,&.ui-tabs-selected {
+			border: none;
+			@include box-shadow(0 1px 1px rgba(0,0,0,.1));
+			background: #fff;
+			@include border-radius (4px);
+			a {
+				color: #333;
+        position: relative;
+				background: image-url('tab_arrow_white.png') no-repeat right;
+				margin-right: -8px;
+      }
+		}
+	}
+}
+.tag-filter {
+  @include ul (none, 0, 0);
+  li {
+    @include inline-block;
+    &.active a {
+      color: #fff;
+      background-color: rgba($darkBlueText,0.35);
+      @include box-shadow(inset 0 0 5px rgba(0,0,0,.2), 0 1px 0 rgba(255,255,255,.1));
+      @include transition(all, 0.2s);
+    }
+  }
+  a {
+    padding: 6px 15px;
+    display: block;
+    text-align: center;
+    @include text-shadow (0 -1px 0 rgba(0,0,0,0.3));
+    @include border-radius(5px);
+    color: #fff;
+    color: rgba(255,255,255,.8);
+    cursor: pointer;
+    &:hover {
+      color: #fff;
+      color: rgba(255,255,255,.9);
+      @include transition(all, 0.1s);
+    }
+  }
+}

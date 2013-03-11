@@ -1,0 +1,148 @@
+<div id="quilt-overview">
+	<div class="contentBoxDarkBlueTexture">
+		<div class="wrapper">
+			<h1>Quilt</h1>
+			<div class="janrain_feature_box">
+			A user interface framework to make your life easier. Made with love by the Janrain UX Team.
+			</div>		
+		</div>
+		<!--<div class="wrapper section">
+		<div class="grid-block">
+			<div class="col_4">
+				<div class="janrain_feature_box">
+					<h5>Widgets</h5>
+					<p>Quilt Widgets is a lightweight; cross-platform; tested and approved; user interface library that contains all the styles and components for your widget.</p>
+					
+				</div>
+			</div>
+			<div class="col_4">
+				<div class="janrain_feature_box">
+					<h5>Dashboards</h5>
+						description
+				</div>
+			</div>
+			<div class="col_4">
+				<div class="janrain_feature_box">
+					<h5>Portals</h5>
+						description
+				</div>
+			</div>
+		</div>
+	</div>-->
+	</div>
+</div>
+<div class="wrapper section">
+	<div class="grid-block section">
+		<div class="col_12 section">
+			<h2>Using Quilt</h2>
+			Quilt, Quilt widgets, and Provider Assets are hosted in Amazon S3 and served via CloudFront. All you have to do is add the stylesheet url to your project and follow the class markup guidelines to quilt your project. Quilt is cross-browser, cross-device tested; requires no dependencies; minified and gzip for the best performance.
+			<div class="grid-block section mt40 tabs">
+			    <div class="col_3">
+			        <ul class="tabs-list">
+			            <li class="tab"><a href="#quilt">Quilt Library</a></li>
+			            <li class="tab"><a href="#widget">Widget Library</a></li>
+			            <li class="tab"><a href="#icon">Icon Library</a></li>
+			            <li class="tab"><a href="#provider">Provider Assets</a></li>
+			            <li class="tab"><a href="#forms">Forms</a></li>
+			            <li class="tab"><a href="#grid">Grid</a></li>
+			            <li class="tab"><a href="#tables">Tables</a></li>
+			            <li class="tab"><a href="#examples">Examples</a></li>
+			        </ul>
+			    </div>
+			    <div class="col_9">			
+			    	<div id="quilt">
+			    	    <div class="contentBoxWhiteShadow">
+			    	        <h5>Quilt CSS v<%= Quilt::VERSION %></h5>
+			    	        <b>HTTP URL:</b>
+			    	        <pre class="brush: html">http://cdn.quilt.janrain.com/<%= Quilt::VERSION %>/quilt.css
+http://cdn.quilt.janrain.com/<%= Quilt::VERSION %>/ie.css</pre>
+			    	        <b>HTTPS URL:</b>
+			    	         <pre class="brush: html">https://d3hmp0045zy3cs.cloudfront.net/<%= Quilt::VERSION %>/quilt.css
+https://d3hmp0045zy3cs.cloudfront.net/<%= Quilt::VERSION %>/ie.css</pre>
+			    	    </div>
+			    	    <div class="contentBoxWhiteShadow noise section">
+			    	    	<h5>Quilt JS v<%= Quilt::VERSION %></h5>
+			    	    	<b>HTTP URL:</b>
+			    	      <pre class="brush: html">http://cdn.quilt.janrain.com/<%= Quilt::VERSION %>/quilt.js</pre>
+			    	      <pre class="brush: html">http://cdn.quilt.janrain.com/<%= Quilt::VERSION %>/jquery-quilt.js</pre>
+			    	      <b>HTTPS URL:</b>
+			    	      <pre class="brush: html">https://d3hmp0045zy3cs.cloudfront.net/<%= Quilt::VERSION %>/quilt.js</pre>
+			    	      <pre class="brush: html">https://d3hmp0045zy3cs.cloudfront.net/<%= Quilt::VERSION %>/jquery-quilt.js</pre>              
+			    	    </div>
+			    	</div>
+			    	<div id="widget">
+							<div class="contentBoxWhiteShadow">
+			    	     <h5>Widget CSS v<%= Quilt::VERSION %></h5>
+			    	     <b>HTTP URL:</b>
+			    	     <pre class="brush: html">http://cdn.quilt.janrain.com/<%= Quilt::VERSION %>/widgets.css
+http://cdn.quilt.janrain.com/<%= Quilt::VERSION %>/widgets-ie.css</pre>
+			    	     <b>HTTPS URL:</b>
+			    	     <pre class="brush: html">https://d3hmp0045zy3cs.cloudfront.net/<%= Quilt::VERSION %>/widgets.css
+https://d3hmp0045zy3cs.cloudfront.net/<%= Quilt::VERSION %>/widgets-ie.css</pre>
+			    	  </div>
+			    	</div>
+			    	<div id="icon">
+			    		<div class="contentBoxWhiteShadow">
+			    	     <h5>Icons CSS v<%= Quilt::VERSION %></h5>
+			    	     <b>HTTP URL:</b>
+			    	     <pre class="brush: html">http://cdn.quilt.janrain.com/<%= Quilt::VERSION %>/icon-font.css
+http://cdn.quilt.janrain.com/<%= Quilt::VERSION %>/icon-font-ie.css</pre>
+			    	     <b>HTTPS URL:</b>
+			    	     <pre class="brush: html">https://d3hmp0045zy3cs.cloudfront.net/<%= Quilt::VERSION %>/icon-font.css
+https://d3hmp0045zy3cs.cloudfront.net/<%= Quilt::VERSION %>/icon-font-ie.css</pre>
+			    	  </div>
+			    	</div>
+			    	<div id="provider">
+			    		<div class="contentBoxWhiteShadow">
+			    	     <h5>Provider Assets CSS v<%= Quilt::VERSION %></h5>
+			    	     <b>HTTP URL:</b>
+			    	     <pre class="brush: html">http://cdn.quilt.janrain.com/<%= Quilt::VERSION %>/providers.css
+http://cdn.quilt.janrain.com/<%= Quilt::VERSION %>/providers-ie.css</pre>
+			    	     <b>HTTPS URL:</b>
+			    	     <pre class="brush: html">https://d3hmp0045zy3cs.cloudfront.net/<%= Quilt::VERSION %>/providers.css
+https://d3hmp0045zy3cs.cloudfront.net/<%= Quilt::VERSION %>/providers-ie.css</pre>
+			    	  </div>
+			    	</div>
+			        <div id="forms">
+			            <div class="contentBoxWhiteShadow">
+			             <h5>Form CSS v<%= Quilt::VERSION %></h5>
+			             <b>HTTP URL:</b>
+			             <pre class="brush: html">http://cdn.quilt.janrain.com/<%= Quilt::VERSION %>/forms.css</pre>
+			             <b>HTTPS URL:</b>
+			             <pre class="brush: html">https://d3hmp0045zy3cs.cloudfront.net/<%= Quilt::VERSION %>/forms.css</pre>
+			          </div>
+			        </div>
+			        <div id="grid">
+			            <div class="contentBoxWhiteShadow">
+			             <h5>Grid CSS v<%= Quilt::VERSION %></h5>
+			             <b>HTTP URL:</b>
+			             <pre class="brush: html">http://cdn.quilt.janrain.com/<%= Quilt::VERSION %>/grid.css</pre>
+			             <b>HTTPS URL:</b>
+			             <pre class="brush: html">https://d3hmp0045zy3cs.cloudfront.net/<%= Quilt::VERSION %>/grid.css</pre>
+			          </div>
+			        </div>
+			        <div id="tables">
+			            <div class="contentBoxWhiteShadow">
+			             <h5>Table CSS v<%= Quilt::VERSION %></h5>
+			             <b>HTTP URL:</b>
+			             <pre class="brush: html">http://cdn.quilt.janrain.com/<%= Quilt::VERSION %>/tables.css</pre>
+			             <b>HTTPS URL:</b>
+			             <pre class="brush: html">https://d3hmp0045zy3cs.cloudfront.net/<%= Quilt::VERSION %>/tables.css</pre>
+			          </div>
+			        </div>
+			    	<div id="examples">
+			    		<div class="contentBoxWhiteShadow">
+			    			<h5>Examples</h5>
+			    			Standard link href
+								<pre class="brush: html">&lt;link href="http://cdn.quilt.janrain.com/<%= Quilt::VERSION %>/quilt.css" media="all" rel="stylesheet" type="text/css" /&gt;</pre>
+								Sass/Compass
+								<pre class="brush: sass">@import 'http://cdn.quilt.janrain.com/<%= Quilt::VERSION %>/quilt.css';</pre>
+								Rails/Ruby
+								<pre class="brush: rails">&lt;%= stylesheet_link_tag "http://cdn.quilt.janrain.com/<%= Quilt::VERSION %>/quilt.css", :media => "all" %&gt;</pre>
+			    		</div>
+			    	</div>
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,384 @@
+@import 'compass/css3';
+@import 'quilt';
+
+body.zendesk {
+	padding: 45px 0 0 0;
+	height: auto;
+	font-size: 1em;
+	@extend .janrain-font;
+	line-height: 1.5;
+	height: 100%;
+}
+.global_nav{
+	position: absolute;
+	top: 0px;
+}
+body.rendering #page { visibility: hidden; }
+#page {
+	clear: both;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin-bottom: -50px;
+	max-width: inherit;
+	width: inherit;
+	margin: auto;
+	float: none;
+	background: transparent;
+	@include border-radius(0px);
+	padding: 0px;
+	h1,h2,h3,h4 {
+		padding: 10px 0 5px;
+		color: #074764;
+		//font-weight: 600;
+		margin: 0;
+	}
+	h2 {
+		font-size: 2.154em;
+		font-weight: 300;
+		color: #6FAC48;
+		a {
+			color: #009DDC;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	h3 {
+		font-size: 1.286em;
+		margin: 0px;
+		&.entry-title{
+			margin-top: 0px;
+		}
+	}
+	#content-footer {
+		height: 50px;
+	}
+}
+.access .or-text, .password_reset_requests .or-text {
+	@extend .contentBoxBlueTexture;
+	padding: 7px 0 9px;
+}
+#top {
+	#header {
+		background: transparent;
+		margin: 0px;
+		padding: 0px;
+		position: relative;
+		#header_container {
+			padding: 0px;
+			margin: 0px;
+		}
+		#top-right {
+			position: absolute;
+			padding: 0px;
+			right: 0px;
+			top: 20px;
+			font-size:.925em;
+			font-weight: normal;
+			color: #666;
+			a {
+				color: #009DDC;
+				&:hover {
+					color: #006690;
+				}
+			}
+		}
+	}
+	#top-menu-background {
+		background: transparent;
+		height: auto;
+		#topquery {
+			display: none;
+		}
+	}
+}
+
+#top-menu {
+	@extend .tab_bar;
+	width: 960px;
+	margin: 0 auto;
+	#gray {
+		display: none;
+	}
+	#user-menu {
+		float: right;
+		font-weight: 600;
+		margin-top: 14px;
+		a {
+			padding: 0;
+			@include inline-block;
+			color: #127FBF;
+		}
+	}
+	.agent-tabs, #green {
+		@extend .tab_nav;
+		width: auto!important;
+		li {
+			padding: 0px;
+			border: none!important;
+			@include border-radius(0px);
+			background: transparent;
+			height:auto;
+			float: left;
+			display: inline;
+			a {
+				text-transform: capitalize;
+				font-size: 1;
+				border: none;
+				&:hover {
+					background: transparent;
+				}
+			}
+			&.active {
+				@extend .selected;
+				.menu-drop {
+					background: #fff;
+					a {
+						color: #127FBF;
+						text-shadow: none;
+						background: transparent;
+					}
+				}
+			}
+			.menu-drop {
+				padding: 0px;
+				li {
+					background: #fff;
+					a {
+						padding: 2px 14px;
+						line-height: 20px;
+						&:hover {
+							background: #F3F8FC;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+#container {
+	padding: 0px;
+	clear: both;
+	min-height: 100%;
+	height: auto!important;
+	height: 100%;
+	margin-bottom: -50px;
+	.content_grey,.grey_box_top,.grey_box_bottom,.green_box_top,.green_box_bottom,.box_bottom_clear,.content-top-right{
+		background: transparent;
+		height: auto;
+		margin: auto;
+	}
+	#contentwrapper {
+		float: none;
+		width: auto;
+		#contentcolumn {
+			margin-right: inherit;
+		}
+	}
+	.content {
+		padding: 0px;
+		font-size: 1em;
+		p {
+			margin: 0 0 15px 0;
+			line-height: inherit;
+			color: inherit;
+		}
+		&.content_green {
+			background: transparent;
+		}
+		.action {
+			margin: 0px;
+			padding: 0px;
+
+		}
+	}
+	.introductory_display_texts {
+		margin-top: 10px;
+		h2 {
+			color: #6FAC48;
+			font-size: 2.154em;
+			font-weight: 300;
+		}
+		p {
+			font-size: 1.286em;
+			font-weight: 300;
+		}
+	}
+	.frame, #entryform, #end-user-form {
+		@include contentBox (#fff);
+		@include box-shadow (0 1px 1px rgba(0,0,0,.1));
+		margin: 20px 0;
+		border: none;
+		padding: 20px;
+		width: auto!important;
+		h2,h3 {
+			color: #1B2732;
+			padding: 0px;
+			font-size: 1.143em;
+			font-weight: 400;
+		}
+		.title {
+			font-size: 1.286em;
+			width: auto;
+			&#entry_title {
+				margin-bottom: 20px;
+			}
+		}
+		.category-header, .stats_summary_header {
+			margin: -10px -10px 0;
+			background: transparent;
+			border-bottom: 1px dashed #e9e9e9;
+			@include border-radius(5px 5px 0 0);
+			padding: 10px;
+			h2 {
+				color: #666!important;
+				padding-top: 0px;
+				margin-bottom: 5px;
+				font-size: 1.385em;
+				font-weight: 100;
+				padding: 1px 0 5px;
+				margin: 0px;
+			}
+			.category-top-right{
+				top: 0px;
+			}
+		}
+		.entry {
+			padding: 0px;
+			margin: 0px;
+			.entry-title {
+				color: #6FAC48;
+				font-weight: 400;
+				border-bottom: 1px solid #CDDAE0;
+				font-size: 1.5em;
+				margin: 0 0 10px 0;
+				padding: 0px!important;
+			}
+		}
+		#add_comment{
+			margin: -10px -10px 10px;
+			border-bottom: 1px dashed #e9e9e9;
+			@include border-radius(5px 5px 0 0);
+			padding: 10px;
+			color: #555;
+			font-size: 14px;
+			font-weight: bold;
+		}
+		.item {
+			.view-post {
+				width: auto;
+				float: none;
+			}
+			.item-info {
+				h1 {
+					padding: 0px;
+				}
+				.data {
+					border: none;
+				}
+			}
+		}
+		.entry {
+			font-size: 14px;
+		}
+	}
+	.tabbed_container,.sammy_tabbed_container {
+		margin: 10px 0;
+	}
+	.category {
+		h3 {
+			padding: 0px;
+			a, a:visited, a:active {
+				color: #009DDC;
+				&:hover {
+					text-decoration: underline;
+				}
+				.follow_link {
+					color: #009DDC;
+					&:hover {
+						color: #009DDC;
+					}
+				}
+			}
+		}
+		ul {
+			.fade_truncation_outer {
+				a {
+					color: #2D3B48;
+				}
+			}
+		}
+	}
+}
+.box_top,.box_bottom,.box,.blue_box_top,.blue_box_bottom {
+	display: none;
+	background: transparent;
+}
+#sidebar {
+	float: left;
+	margin-left: 2%;
+	width: 23%;
+	.side-box-content {
+		padding: 10px;
+		@include border-radius(5px);
+		background: rgba(255,255,255,.75);
+		margin: 0px;
+		font-size: 0.929em;
+		width: auto;
+		h3 {
+			margin: 0px;
+			color: #000;
+			font-size: 1.1em;
+			font-weight: 700;
+		}
+	}
+}
+
+#footer{
+	border-top: 1px solid #E3E3E3;
+	background: #FAFBFB;
+	background: rgba(255, 255, 255, 0.75);
+	margin-top: 20px;
+	padding: 20px 0;
+	font-size: 13px;
+	height: 50px;
+	text-align: left;
+	max-width: 100%;
+	clear: both;
+	a {
+		text-decoration: none;
+	}
+	#footer_nav {
+		margin: 0px;
+		padding: 0px;
+		li {
+			@include inline-block;
+			vertical-align: top;
+			list-style: none;
+			border-right: 1px solid #ccc;
+			a {
+				font-weight: 500;
+				display: block;
+				color: #009DDC;
+				padding: 0 10px;
+				.icon { 
+					margin-right: 5px;
+					vertical-align: middle;
+				}
+			}
+		}
+	}
+	.copyright {
+		line-height: 2.5;
+		margin-left: 10px;
+	}
+	.copyright {
+		margin-left: 10px;
+		color: #666;
+	}
+	.zendesk {
+		margin-left: 10px;
+		color: #888;
+	}
+}

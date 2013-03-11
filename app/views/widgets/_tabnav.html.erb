@@ -1,0 +1,8 @@
+<div class="wrapper">
+	<div class="tab_bar">
+		<%= tabs_tag :namespace => :tabnav, :open_tabs => { :class => "tab_nav" } do |tab| %>
+	    <%= tab.signin	'Sign In', widgets_signin_path %>
+	    <%= tab.editProfile	'Edit Profile', widgets_editProfile_path %>
+		<% end %>
+	</div>
+</div>

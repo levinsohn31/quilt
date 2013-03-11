@@ -1,0 +1,102 @@
+do startRendering = ->
+  body = document.getElementsByTagName('body')[0]
+  console.log body
+  body.className += ' rendering'
+
+janrainTemplate =
+  # version of quilt to be used in zendesk
+  quiltVersion: "2.0.18"
+  quiltUrl: if "https:" is document.location.protocol then "https://d3hmp0045zy3cs.cloudfront.net" else "http://cdn.quilt.janrain.com"
+  communityActive: if "community.janrain.com" is window.location.hostname then 'selected' else ''
+  supportActive: if "support.janrain.com" is window.location.hostname then 'selected' else ''
+
+  globalNav: """
+	<div class="global_nav">
+	  <div class="wrapper">
+		<ul class="nav-list">
+		  <li><a href="http://rpxnow.com">Sign In</a></li>
+		  <li><a href="http://janrain.com/blog/">Blog</a></li>
+		  <li><a class="selected" href="http://developers.janrain.com">Developers</a></li>
+		  <li><a href="http://janrain.com/about/contact-us/">Contact</a> </li>
+		</ul>
+	  </div>
+	</div>
+	"""
+  footer: """
+	<div class="wrapper">
+	  <div class="grid-block">
+		<div class="col_9">
+		  <ul id="footer_nav" class="menu">
+			<li><a title="home" href="http://developers.janrain.com/"><span class="icon janrain-icon-16 janrain-icon-home"></span></a></li>
+			<li><a title="book" href="http://developers.janrain.com/documentation/"><span class="icon janrain-icon-16 janrain-icon-book"></span>Documentation</a></li>
+			<li><a title="power" href="/extensions"><span class="icon janrain-icon-16 janrain-icon-power"></span>Extensions</a></li>
+			<li><a title="code" href="http://developers.janrain.com/examples/"><span class="icon janrain-icon-16 janrain-icon-code"></span>Examples</a></li>
+			<li class="#{@communityActive}"><a title="people" href="http://community.janrain.com"><span class="icon janrain-icon-16 janrain-icon-people"></span>Community</a></li>
+			<li class="#{@supportActive}><a title="help" href="http://support.janrain.com"><span class="icon janrain-icon-16 janrain-icon-help"></span>Support</a></li>
+		  </ul>
+		  <div class="copyright">Copyright © 2012 Janrain. All Rights Reserved.</div>
+		  <div class="zendesk">Support Ticket System by Zendesk</div>
+		</div>
+	  </div>
+	</div>
+	"""
+  navBar: """
+	<div class="nav_bar" class="clearfix">
+		<div class="wrapper">
+			<ul class="main_nav" class=""><li><a title="home" href="http://developers.janrain.com/"><span class="icon janrain-icon-16 janrain-icon-home"></span></a></li>
+				<li><a title="book" href="http://developers.janrain.com/documentation/"><span class="icon janrain-icon-16 janrain-icon-book"></span>Documentation</a></li>
+				<li><a title="power" href="/extensions"><span class="icon janrain-icon-16 janrain-icon-power"></span>Extensions</a></li>
+				<li><a title="code" href="http://developers.janrain.com/examples/"><span class="icon janrain-icon-16 janrain-icon-code"></span>Examples</a></li>
+				<li class="#{@communityActive}"><a title="people" href="http://community.janrain.com"><span class="icon janrain-icon-16 janrain-icon-people"></span>Community</a></li>
+				<li class="#{@supportActive}"><a title="help" href="http://support.janrain.com"><span class="icon janrain-icon-16 janrain-icon-help"></span>Support</a></li>
+			</ul>
+		</div>
+	</div>
+      """
+
+# add the quilt classes to the zendesk site, otherwise styles wont load
+do addCustomClasses = ->
+  $j('body').addClass 'zendesk'
+  $j('#container').addClass 'wrapper section'
+  $j('#contentwrapper').addClass 'grid-block clearfix'
+  $j('#page').append '<div id="content-footer"></div>'
+  $j('#contentcolumn').addClass 'col_12'
+  $j('#sidebar').addClass 'section clearfix'
+
+# First check to see if div#top-right exists (privacy policy & login links)
+# If it does, move its contents to the top-menu, and remove the original html
+do moveUserMenu = ->
+  topRight = $j('#top-right').html()
+  if topRight
+    $j('#top-right').remove()
+    $j('<div>')
+    .attr('id', 'user-menu')
+    .appendTo('#top-menu')
+    .html topRight
+
+do templatify = ->
+  # insert the global nav into the page
+  $j('body').append janrainTemplate.globalNav
+  # insert the main navigation into the page
+  $j('#header_container').html janrainTemplate.navBar
+  # insert the footer into the page
+  $j('#footer').html janrainTemplate.footer
+  # remove old favicon and add the janrain favicon
+  $j("link[rel='shortcut icon']").remove()
+  $j('<link>')
+  .attr('rel','shortcut icon')
+  .attr('href',"#{janrainTemplate.quiltUrl}/#{janrainTemplate.quiltVersion}/favicon.ico")
+  .appendTo $j('head')
+  # add proper css class to buttons
+  $j(".button").removeClass("button small").addClass("btn_go")
+  # on the entries-new page, add the primary class to the button
+  if $j("body").hasClass "entries-new"
+    $j("#submit-button").removeClass("btn_go").addClass("btn")
+  # detect and add classes to the proper content columns
+  if $j("#sidebar").length and $j("#sidebar").html().length > 3
+    $j("#contentcolumn").removeClass("col_12").addClass("col_9")
+    $j("#sidebar").appendTo("#contentwrapper")
+    $j("#sidebar").removeClass("section clearfix").addClass("col_3 section")
+  $j('body').addClass('zendesk').removeClass('rendering')
+  null
+

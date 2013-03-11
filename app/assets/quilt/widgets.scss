@@ -1,0 +1,945 @@
+@import "compass/utilities/";
+@import "compass/css3/";
+@import "_mixins";
+@import "_widget-variables";
+
+@function grid-width($n) {
+  @return $n * $grid-width - $gutter-width;
+}
+
+@mixin button {
+  	@include border-radius(5px);
+  	font-size: $baseFontSize + 1;
+    line-height: 15px;
+  	padding: 10px;
+  	margin: 5px;
+  	border: none;
+  	cursor: pointer;
+  	width: auto;
+  	@include inline-block;
+}
+
+@mixin inline-block {
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  *display: inline;
+  *vertical-align: middle;
+}
+@mixin hover-transition {
+	@include transition (all 0.15s linear 0s);
+}
+
+@mixin doubleBorder ($side, $shadow) {
+  @include box-shadow ($shadow);
+  border-#{$side}: 1px solid #999;
+  border-#{$side}: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.janrain_close_confirm_container {
+  background-color: rgba(0,0,0,0.8);
+  width: 100%;
+  height: 100%;
+  z-index: 1005;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+	text-align: center;
+  .janrain_close_confirm {
+    margin: 150px 0 0 0;
+    .janrain_modal_confirm {
+      @include button;
+    	text-decoration: none;
+    }
+    .janrain_modal_cancel {
+      @include button;
+    	text-decoration: none;
+    }
+  }
+}
+.janrain-capture-ui {
+  line-height: 18px;
+  margin: 0px;
+
+// Widget Grid Styles
+  .capture_grid_block {
+      @include pie-clearfix;
+  }
+  div[class^="capture_col"] {
+      float: left;
+      margin-left: $gutter-width;
+      &:first-child {
+          margin-left: auto;
+      }
+  }
+  div[class*="capture_center_col"] {
+    float: none;
+    display: block;
+    margin-right: auto;
+  }
+
+  @include widget-grid-columns;
+
+  .capture_right {float: right;}
+  .capture_left {float: left;}
+
+  p {
+  	margin: 0 0 15px 0;
+  }
+
+// Content Styles
+  &.capture-ui-content {
+    padding: 0;
+    margin: 0 auto;
+    position: relative;
+  }
+  &.capture_rtl {
+    direction:rtl;
+    unicode-bidi:bidi-override;
+  }
+  .capture_pad {
+    padding: 10px;
+  }
+  .capture_extraPad {
+    padding: 25px;
+  }
+  .capture_centerText {
+    text-align: center;
+  }
+  .capture_smallText {
+    font-size: $baseFontSize - 1;
+  }
+  .capture_bigText {
+    font-size: $baseFontSize + 1;
+  }
+  .capture_capitalize {
+    text-transform: capitalize;
+  }
+  .capture_textRight,
+  .capture_rightText,
+  .capture_form_item.capture_textRight,
+  .capture_form_item.capture_rightText {
+    text-align: right;
+    min-height: 0;
+  }
+  .capture_bottomPin {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .capture_rounded {
+    @include border-radius (10px);
+  }
+  .capture_header h1 {
+    @include inline-block;
+  }
+  .capture_header .capture_backButton {
+    margin-right: 10px;
+    background-color: white;
+  }
+  .capture_datePicker_mainTarget {
+    position: relative;
+    .capture_text_input {
+      width: 90%;
+      margin-right: 1%;
+    }
+    .capture_dateselect_year {
+      width: 31%;
+    }
+    .janrain-icon-calendar {
+        padding: 5px;
+      }
+  }
+
+  .capture_datePicker_wrapper {
+    @include border-radius (5px);
+    @include box-shadow(0 0px 10px -3px rgba(0,0,0,0.5));
+    font-size: 13px;
+  }
+  .capture_datePicker_header {
+    padding: 5px 30px;
+    text-align: center;
+    @include border-radius(5px 5px 0 0)
+  }
+  .capture_datePicker_yearSelect,
+  .capture_datePicker_monthSelect {
+    border: 0;
+    background-color: transparent;
+    margin: 0;
+  }
+  .capture_datePicker_monthSelect {
+    margin-right: 10px;
+  }
+  .capture_datePicker_monthButtons {
+    position: absolute;
+    top: 0;
+    padding: 4px;
+    &:visited,
+    &:link {
+      text-decoration: none;
+    }
+  }
+  .capture_datePicker_previousMonthButton {
+    left: 0;
+    @include border-radius (5px 0 0 0);
+    @include doubleBorder (right, 1px 0 0 0 rgba(255, 255, 255, 0.5));
+  }
+  .capture_datePicker_nextMonthButton {
+    right: 0;
+    @include border-radius (0 5px 0 0);
+    @include doubleBorder (left, -1px 0 0 0 rgba(255, 255, 255, 0.5));
+  }
+  .capture_datePicker_monthTable {
+    th {
+        padding: 4px 4px 2px 4px;
+        text-align: center;
+    }
+    td {
+      border-width: 1px 0 0 1px;
+      width: 27px;
+      @include box-sizing (border-box);
+      &:first-child {
+        border-left: none;
+      }
+    }
+    a:visited,
+    a:link {
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      padding: 4px 4px 2px 4px;
+    }
+  }
+  .capture_datePicker_openButton {
+    cursor: pointer;
+  }
+
+  .capture_backgroundColor,
+  &.capture_backgroundColor {
+    @extend .capture_rounded;
+    @extend .capture_pad;
+  }
+  &#captureAccessDeniedBuiltIn,
+  &#captureRetrievingUserDataBuiltIn {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+  }
+  .capture_access,
+  .capture_retrieving {
+    background-color: white;
+    background-image: image-url('spinner.gif');
+    background-repeat: no-repeat;
+    background-position: 3% center;
+    @include border-radius (10px);
+    margin: -56px 0 0 -130px;
+    padding: 50px 25px 50px 40px;
+    width: 260px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @include box-shadow (0 0 15px rgba(0,0,0,0.3));
+  }
+  .capture_access {
+    background-image: none;
+    text-align: center;
+    padding: 50px 25px 50px 25px;
+    width: 275px
+  }
+  .capture_dashed {
+    margin: 10px auto 20px;
+    @include border-radius (5px);
+    @include pie-clearfix;
+  }
+  .capture_shadow {
+    @include box-shadow ($innerShadow);
+  }
+  .capture_footer {
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 10px;
+    p {
+      margin: 0 15px;
+    }
+  }
+  .capture_profile_section {
+    margin: 0 auto 20px;
+    padding: 20px 40px;
+    position: relative;
+  }
+  .noise {
+  	background: image-url('white_noise.png') repeat;
+  }
+  .capture_text_input, .capture_select, .capture_textarea {
+    padding: 6px 5px;
+    margin: 2px 0;
+    outline: none;
+  }
+
+  .capture_text_input,
+  .capture_textarea,
+  .capture_select,
+  .capture_inputPlaceholder {
+    width: 100%;
+    @include box-sizing (border-box);
+    @include inline-block;
+  }
+  .capture_text_input, .capture_textarea, .capture_inputPlaceholder {
+    @include inline-block;
+  }
+  .capture_select {
+    -webkit-appearance: none;
+    background-image: image-url('dropdown_arrow.png');
+    background-repeat: no-repeat;
+    background-position: 100% -28px;
+  }
+  .capture_checkbox,
+  .capture_radio {
+    padding: 7px 5px;
+  }
+  .capture_textarea {
+    vertical-align: top;
+  }
+  .radio-input {
+    width: auto;
+    margin: 0 5px;
+  }
+  .capture_radio_toggle {
+    @include inline-block;
+    .capture_radio_label {
+      margin: 2px 20px 0 0;
+    }
+  }
+  input::-moz-focus-inner,
+  select::-moz-focus-inner,
+  button::-moz-focus-inner /*Remove button padding in FF*/
+  {
+      border: 0;
+      padding: 0;
+  }
+
+  //Buttons
+  .capture_btn, a.capture_btn, button.capture_btn, input.capture_btn, .capture_backButton {
+    @include button;
+  }
+  .capture_btn.capture_icon, a.capture_btn.icon, input.capture_btn.capture_icon {
+  	span {
+  		width: 16px;
+  		height: 16px;
+  		float: left;
+  	}
+  	.capture_btn-label {
+  		width: auto;
+  		height: auto;
+  		margin: 0 8px;
+  		float: left;
+  	}
+  }
+  .capture_btn_half, a.capture_btn_half, button.capture_btn_half, input.capture_btn_half {
+    @include box-sizing (border-box);
+    margin: 0 1%;
+    width: 48%;
+  }
+  .capture_btn_full {
+    margin: 0;
+    @include box-sizing (border-box);
+    width: 100%;
+  }
+  .capture_processing {
+    background-image: image-url('spinner.gif');
+    background-repeat: no-repeat;
+    background-position: 5% center;
+    padding: 10px 10px 10px 25px;
+    cursor: auto;
+  }
+  div.capture_icon {
+  	float: left;
+  	span {
+  		float: left;
+  		margin: 0 5px 0 0;
+  	}
+  }
+  .capture_fatal_error {
+    background-image: image-url('error.png');
+    background-repeat: no-repeat;
+    background-position: 10px 5px;
+  }
+  .capture_form_error {
+    @extend .capture_fatal_error;
+  }
+  .capture_backButton {
+    background-image: image-url('mobile-back.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .user-tools {
+    margin-top: 12px;
+    cursor: pointer;
+    position: relative;
+    .icon span {
+      @include opacity (.5);
+    }
+    .user-name {
+      float: left;
+    }
+  }
+  .janrain_traditional_account_only {
+//    display: none;
+  }
+  .capture_provider {
+  	@include ul (none, 0, 5px 0 0 0);
+  	&.linked-account-list {
+  	 @include inline-block;
+  	}
+  	li {
+    	@include providers-li (auto, auto, 5px, 0 0 5px);
+    	display: block;
+    	text-transform: capitalize;
+    	position: relative;
+    	span {
+    	 margin-right: 10px;
+    	 @include inline-block;
+    	 vertical-align: top;
+      }
+      .capture_remove {
+        position: absolute;
+        right: 0;
+        cursor: pointer;
+      }
+  	}
+  }
+
+//Forms, Tips and validation
+	.capture_tip, .capture_tip_error, .capture_tip_validating {
+	  display: none;
+	}
+  .capture_hidden {
+    display: none;
+  }
+  .capture_form_item {
+    clear: both;
+    margin-top: 0;
+    margin-left: 0;
+    margin-bottom: 20px;
+    min-height: 51px;
+    position: relative;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    p {
+      margin-left: 7px;
+    }
+    & > label {
+      display: block;
+      vertical-align: middle;
+      margin: 0 10px 0 5px;
+      width: auto;
+    }
+  }
+  .capture_tip {
+    color: $tipTextColor;
+    @include inline-block;
+  }
+  .capture_focused .capture_tip {
+    color: $inputActiveColor;
+  }
+  .capture_tip_validating {
+    color: $validatingTextColor;
+    display: none;
+  }
+  .capture_tip_validated {
+    color: $validatedTextColor;
+    display: none;
+  }
+  .capture_tip_error {
+    color: $errorTextColor;
+    display: none;
+    .capture_suggestions {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      .capture_suggestion {
+        display: block;
+        margin: 10px 0;
+        text-align: center;
+      }
+    }
+  }
+
+  /*custom address formatting*/
+  .capture_validating .capture_radio,
+  .capture_validating .capture_checkbox,
+  .capture_validating .capture_text_input {
+    background-image: image-url('spinner.gif');
+    background-repeat: no-repeat;
+    background-position: 98% center;
+  }
+  .capture_focused.capture_validating .capture_text_input {
+    background-image: none;
+  }
+  .capture_error .capture_radio,
+  .capture_error .capture_checkbox,
+  .capture_error .capture_text_input {
+    background-image: image-url('error.png');
+    background-repeat: no-repeat;
+    background-position: 98% center;
+  }
+  .capture_error .capture_radio,
+  .capture_error .capture_checkbox {
+    border: none;
+    @include box-shadow (none);
+  }
+  .capture_validated .capture_radio,
+  .capture_validated .capture_checkbox,
+  .capture_validated .capture_text_input {
+    background-image: image-url('validated.png');
+    background-repeat: no-repeat;
+    background-position: 98% center;
+  }
+  /* state: validating */
+  .capture_validating .capture_tip_validating {
+    @include inline-block;
+  }
+  .capture_validating .capture_tip,
+  .capture_validating .capture_tip_error {
+    display: none;
+  }
+  .capture_focused.capture_validating .capture_tip_validating,
+  .capture_validated .capture_tip_validating,
+  .capture_validated .capture_tip_error {
+    display: none;
+  }
+  /* state: error */
+  .capture_error .capture_tip_error {
+    @include inline-block;
+  }
+  .capture_error .capture_tip,
+  .capture_error .capture_tip_validating {
+    display: none;
+  }
+
+  .capture_display_toggle_wrap {
+    display: block;
+    position: absolute;
+    top: -3px;
+    left: 215px;
+    .capture_display_toggle_options {
+      background-color: $containerBGColor;
+      @include border-radius (3px);
+      border: 2px solid darken($inputBorderColor, 15);
+      .capture_display_option:first-child {
+        border-bottom: 1px solid $inputBorderColor;
+      }
+      .capture_display_option:hover {
+        background-color: darken($containerBGColor, 5);
+        color: darken($textColor, 20);
+      }
+    }
+    .capture_display_toggle {
+      padding: 2px 25px 2px 8px;
+      cursor: pointer;
+      display: none;
+      &.capture_toggled {
+        @include inline-block;
+      }
+      .janrain-icon-16 {
+        position: absolute;
+        top: 0;
+        right: 5px;
+      }
+      &.capture_display_toggle_disabled {
+        cursor: auto;
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+    .capture_display_toggle_options {
+      position: absolute;
+      top: 20px;
+      left: 5px;
+      z-index: 5;
+      display: none;
+      .capture_display_option {
+        padding: 2px 25px;
+        cursor: pointer;
+        position: relative;
+        .janrain-icon-check {
+          display: none;
+        }
+        .janrain-icon-16 {
+          position: absolute;
+          right: 3px;
+          top: 2px;
+        }
+        &.capture_checked .janrain-icon-check {
+          display: block;
+          position: absolute;
+          top: 3px;
+          left: 3px;
+        }
+        &:hover {
+          @include hover-transition;
+        }
+      }
+    }
+    .capture_public_icon,
+    .capture_private_icon {
+      background-repeat: no-repeat;
+      background-position: 50% 0;
+      @include inline-block;
+      width: 15px;
+      height: 18px;
+    }
+  }
+
+  .capture_tip, .capture_tip_validating, .capture_tip_error {
+    font-size: 12px;
+    padding-left: 5px;
+    vertical-align: middle;
+    line-height: 15px;
+    width: 240px;
+  }
+
+  .capture_checkbox, .capture_radio {
+    @include inline-block;
+    position: relative;
+    @extend .capture_text_input;
+    .account-info & {
+      width: 45%;
+    }
+    label {
+      padding-left: 25px;
+      margin: 0;
+    }
+    .capture_input_radio,
+    .capture_input_checkbox {
+      position: absolute;
+      left: 5px;
+      margin: 0;
+    }
+  }
+
+  .capture_inputPlaceholder {
+    @extend .capture_text_input;
+  }
+
+  .capture_form_collection {
+    @extend .capture_checkbox;
+    display: block;
+    label {
+      display: block;
+    }
+    .capture_checkbox {
+      margin-left: 0;
+    }
+    .capture_form_item {
+      min-height: 0;
+      margin-bottom: 0;
+      width: auto;
+    }
+    .capture_form_item_radioCollectionInline {
+      @include inline-block;
+    }
+  }
+  .capture_tabContainer {
+    position: relative;
+  }
+  .capture_tabs {
+    @include clearfix;
+    text-align: center;
+   	margin: 0;
+    padding: 0;
+   	list-style-type: none;
+    @include box-shadow (0 -10px 5px -8px rgba(0, 0, 0, 0.1) inset);
+    li {
+    	@include inline-block;
+      margin-top: 5px;
+    	a {
+        border-bottom: 0;
+        margin: 0 3px;
+        @include border-radius (5px 5px 0 0);
+        cursor: pointer;
+        line-height: 21px;
+        @include inline-block;
+        padding: 5px 10px;
+        text-align: center;
+    	}
+      &.capture_toggled a {
+        position: relative;
+        z-index: 1;
+      }
+    }
+  }
+  .capture_slider_public_container,
+  .capture_slider_container {
+    width: 450px;
+    margin-left: 5px;
+    @include inline-block;
+  }
+  .capture_slider_public_container {
+    margin-left: 0;
+  }
+  .capture_slider_base {
+    display: block;
+    position: relative;
+    height: 5px;
+    margin: 15px 0 10px;
+    width: 100%;
+    border: 1px solid $inputBorderColor;
+    @include border-radius (3px);
+    .capture_slider_marker {
+      @include border-radius (7px);
+      background-color: #333;
+      position: absolute;
+      top: -5px;
+      width: 15px;
+      margin-left: -10px;
+      height: 16px;
+      &:after {
+        border-color: #333 transparent transparent transparent;
+        border-style: solid;
+        border-width: 6px;
+        display: block;
+        height: 0;
+        margin: 0;
+        width: 0;
+        content: "";
+        position: absolute;
+        top: 13px;
+        left: 1px;
+      }
+    }
+  }
+  .capture_slider_public_base {
+    height: 1px;
+    border: 0;
+    background-color: #333;
+      .capture_slider_public_marker {
+        @include border-radius (0);
+        border-color: #333 transparent transparent transparent;
+        background-color: transparent;
+        border-style: solid;
+        border-width: 8px;
+        display: block;
+        height: 0;
+        margin: 0 0 0 -8px;
+        width: 0;
+        top: 0;
+        &:after {
+          display: none;
+        }
+      }
+  }
+  .capture_slider_list ul {
+    margin: 0;
+    padding: 0;
+    text-align: justify;
+    font-size: $baseFontSize -1;
+    li {
+      display: inline;
+      margin: 0;
+    }
+    &:after {
+      content: "";
+      width: 100%;
+      display: inline-block;
+    }
+  }
+  #recaptcha_container .recaptchatable {
+    #recaptcha_logo,
+    #recaptcha_tagline {
+      display: none !important;
+    }
+  }
+  /*/ Page Specific Styles /*/
+  .switchLink {
+    margin: 25px 0;
+  }
+  .login_widget {
+    min-height: 100px;
+  }
+  .capture_icon_col {
+    @include inline-block;
+    vertical-align: top;
+    margin: 10px 0 10px 20px;
+  }
+  .capture_hover {
+    text-decoration: underline;
+    cursor: pointer;
+    position: relative;
+    .capture_popup_container {
+      display: none;
+    }
+    &:hover .capture_popup_container {
+      display: block;
+      position: absolute;
+      left: -10px;
+      top: 22px;
+      width: 460px;
+      @extend .capture_shadow;
+    }
+  }
+  .capture_profile_pic_edit,
+  .capture_profile_pic_upload,
+  .capture_profile_pic_display,
+  .capture_profile_pic {
+    background-repeat: no-repeat;
+    @include background-size(cover);
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border: 0;
+    img {
+      width: 200px;
+    }
+  }
+  .capture_default,
+  .capture_male {
+    background-image: image-url('profile_default.png');
+  }
+  .capture_female {
+    background-image: image-url('profile_female.png');
+  }
+  .capture_profile_pic_edit,
+  .capture_profile_pic_upload {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    @include inline-block;
+    margin: 0 15px 15px 0;
+    img {
+      width: 100px;
+    }
+  }
+  .capture_profile_pic_edit {
+    background-image: none;
+  }
+  .profile_pic_edit_container {
+    @include inline-block;
+  }
+  .capture_editPhoto_container,
+  .capture_uploadPhoto_container {
+    @include inline-block;
+    width: 480px;
+  }
+
+  .options {
+    margin: 0;
+    padding: 0;
+    @include inline-block;
+    li {
+      list-style: none;
+      position: relative;
+    }
+  }
+  .capture_cancel h3 {
+    text-align: center;
+    padding-top: 0;
+  }
+  .capture_popup_container {
+    @include border-radius (5px);
+    position: absolute;
+    background-color: $containerBGColor;
+    border: 1px solid $containerBorderColor;
+    min-width: 150px;
+    z-index: 103;
+    padding: 10px;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    a {
+      @include inline-block;
+      margin: 0 5px;
+    }
+    .capture_popup-arrow:after {
+      background: $containerBGColor;
+      border: 1px solid $containerBorderColor;
+    }
+    &#capture_remove_photo_contain {
+      text-align: center;
+    }
+    .capture_popup-arrow {
+      position: absolute;
+      top: -15px;
+      left: 10px;
+      @include inline-block;
+      height: 15px;
+      margin: 0;
+      width: 30px;
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .capture_popup-arrow:after {
+      @include transform (rotate(45deg));
+      background: $containerBGColor;
+      border: 1px solid $containerBorderColor;
+      content: "";
+      height: 10px;
+      left: 10px;
+      position: absolute;
+      bottom: -10px;
+      width: 20px;
+    }
+  }
+
+  /*custom full name formatting*/
+  .capture_form_item span#resend_email_verification {
+    position: absolute;
+    right: 170px;
+    bottom: -1px;
+    font-size: 12px;
+  }
+}.janrain-capture-ui-mobile {
+  .popup-bubble {
+    position: absolute;
+    top: -35px;
+    left: -7px;
+    font-size: 14px;
+    z-index: 555;
+    font-weight: normal;
+    display: none;
+    .popup-bubble-arrow {
+      position: absolute;
+      top: 23px;
+      left: 7px;
+      border-style: solid;
+      border-width: 8px;
+      @include inline-block;
+      height: 0;
+      margin: 0;
+      width: 0;
+      border-color: black transparent transparent transparent;
+      z-index: 5;
+    }
+    .popup-bubble-text {
+      @include border-radius (3px);
+      width: 70px;
+      padding: 1px 10px;
+      background-color: $black;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      cursor: pointer;
+      line-height: 22px;
+      a {
+        color: $white;
+      }
+    }
+  }
+}
+/* Start Mobile */
+@import "_quilt-widget-mobile";
+/* End Mobile */
+
+/* Start Icon Sprites */
+@import "providers";
+@import "icon-font";
+/* End Icon Sprites */

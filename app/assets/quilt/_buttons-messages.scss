@@ -1,0 +1,248 @@
+@mixin btn-message {
+	@include border-radius(5px);
+	font-size: 1em;
+	font-weight: 300;
+	line-height: $baseline;
+	@include inline-block;
+	@include box-shadow ($lightShadowTop, $darkShadowBottom, $dropShadow);
+}
+
+@mixin message-arrow ($arrowColor, $arrowTextShadow, $topArrowColor, $topArrowTextShadow) {
+	.message-arrow:before {
+		color: $arrowColor;
+		@include text-shadow (0 1px $arrowTextShadow);
+	}
+	.message-arrow.message-top-left-arrow:before,
+	.message-arrow.message-top-right-arrow:before {
+		color: $topArrowColor;
+		@if $topArrowTextShadow {
+			@include text-shadow (0 -1px 0 $topArrowTextShadow);
+		}
+	}
+}
+
+//Buttons
+.btn {
+	@include btn-message;
+	border: none;
+	cursor: pointer;
+	text-align: center;
+	padding: 5px 15px 4px;
+	margin: 0 7px 0 0;
+	&:hover {
+		color: rgba(255, 255, 255, 1.0);
+		@include text-shadow (0 -1px rgba(#000,.25));
+		@include box-shadow ($lightShadowTop, $darkShadowBottom, $insetShadow);
+		@include hover-transition;
+	}
+	&:active {
+		@include box-shadow($lightShadowTopActive, $lightShadowBottomActive);
+	}
+	.btn-label {
+	 vertical-align: middle;
+	}
+	&.standard:hover{
+		@include text-shadow (0 1px rgba(#fff,.25));
+		color: #000;
+	}
+}
+
+.btn.icon {
+	span {
+		vertical-align: middle;
+		margin-right: 5px;
+	}
+}
+.square {
+	padding: 5px;
+}
+.btn_large {
+	font-size: 1.286em;
+	padding: 12px 30px;
+}
+
+.btn_small {
+	font-size: $basefont;
+	line-height: $baseline;
+	padding: 1px 10px 2px;
+	@include border-radius(3px);
+}
+
+.widget_btn {
+	background-color: #eee;
+	@include background-image (linear-gradient(center bottom , #EEEEEE, #FFFFFF));
+	@include border-radius (5px);
+	min-width: 185px;
+	@include inline-block;
+	margin: 0 5px 5px 0;
+	font-size: $basefont + 1;
+	border: 1px solid #ccc;
+	line-height: 100%;
+	padding: 10px;
+	&:hover {
+		background-color: #e3e3e3;
+		background-image: none;
+	}
+	span {
+		margin-top: 3px;
+		@include inline-block;
+		margin-left: 10px;
+		*vertical-align: top;
+		*margin-top: 10px;
+	}
+	span[class*="janrain-provider"] {
+		margin: 0 10px 0 0;
+	}
+}
+
+// Messages
+.message {
+	@include btn-message;
+	position: relative;
+	margin: 0 0 15px 0;
+	padding: 5px 15px;
+	font-size: $basefont +2;
+	line-height: $baseline - 1;
+	display: block;
+	span[class*="janrain-icon-"] {
+		margin-right: 5px;
+	}
+	&.large {
+		padding: 10px 15px;
+		font-size: 1.385em;
+	}
+}
+.message-arrow {
+	display: block;
+	font-size: 20px;
+	line-height: 0;
+	overflow: hidden;
+	height: 7px;
+	margin: 0;
+	position: absolute;
+	width: 20px;
+	bottom: -6px;
+	left: 10px;
+}
+.message-arrow:before {
+    font-family: 'janrain-icons';
+    content: '\e004';
+}
+
+.message-arrow.message-top-right-arrow,
+.message-arrow.message-top-left-arrow {
+	top: -6px;
+	bottom: auto;
+	line-height: 12px;
+	&:before {
+	    content: '\e007';
+	}
+}
+
+.message-arrow.message-top-right-arrow,
+.message-arrow.message-bottom-right-arrow {
+	right: 10px;
+	left: auto;
+}
+
+.message-bottom-right-arrow {
+	right: 9px;
+	left: auto;
+}
+
+// Button and Message Shared Gradients, Arrows, Other Styles
+.primary  {
+	@include btn-gradient ($blue);
+	@include text-shadow (0 1px #0085BA);
+	@include message-arrow (darken($blue, 10), darken($blue,20), $blue, lighten($blue, 30));
+}
+
+.standard {
+	@include btn-gradient (#eee);
+	color: #333;
+	@include text-shadow (0 1px rgba(#fff,.5));
+	@include message-arrow (darken(#eee, 10), darken(#eee,25), #eee, lighten(#eee, 30));
+}
+
+.success {
+	@include btn-gradient ($green);
+	@include message-arrow (darken($green, 10), darken($green,20), $green, lighten($green,30));
+}
+
+.alert {
+	@include btn-gradient ($orange);
+	@include message-arrow (darken($orange, 10), darken($orange,20), $orange, lighten($orange,30));
+}
+
+.warning {
+	@include btn-gradient ($red);
+	@include message-arrow (darken($red, 10), darken($red,20), $red, lighten($red,30));
+}
+
+.btn_disabled {
+	padding: 5px 15px 4px;
+	cursor: inherit;
+	@include opacity(0.5);
+}
+
+.glow {
+	@include box-shadow($lightShadowTop, $darkShadowBottom, 0px 0px 0px 3px rgba(0,0,0,0.1));
+	margin: 3px;
+	&:hover {
+		@include box-shadow($lightShadowTop, $darkShadowBottom, $insetHover, 0px 0px 0px 3px rgba(0,0,0,0.1));
+	}
+}
+
+.btn_go {
+	border: 1px solid #E6F0F5;
+	font-size: $basefont;
+	color: #009DDC;
+	@include inline-block;
+	@include border-radius(5px);
+	@include background(linear-gradient(top,#ffffff,#E6F0F5));
+	@include box-shadow(0 1px rgba(0,0,0,.2));
+	@include text-shadow (none);
+	font-weight: 100;
+	padding: 5px 10px;
+	vertical-align: baseline;
+  &:hover {
+    @include transition(all 0.1s);
+    @include box-shadow(0 1px rgba(0,0,0,.2));
+    @include background(linear-gradient(top,#3FB8F7,#009DDC));
+    color: #fff;
+    text-shadow: 0 1px rgba(0,0,0,.2);
+  }
+  &:active {
+    text-shadow: 0 -1px rgba(0,0,0,.2);
+    @include background(linear-gradient(bottom,#3FB8F7,#009DDC));
+    @include box-shadow(inset 0 2px 2px rgba(0,0,0,.2));
+    @include transition(all 0.1s);
+  }
+}
+
+.btn_link {
+  padding: 5px 7px;
+  @include border-radius(4px);
+  &:hover {
+    background-color: #E7F1F6;
+    @include hover-transition;
+  }
+  &:active {
+    background-color: #009DDC;
+    color: #fff;
+    @include hover-transition;
+  }
+  span[class*="janrain-icon"] {
+    margin-right: 5px;
+  }
+}
+//Colors for buttons to override common link colors
+a.primary, a.alert, a.success, a.warning {
+	color: #fff;
+}
+a.standard {
+	color: #333;
+}
+a.btn_go, a.btn_link {
+	color: #009DDC;
+}

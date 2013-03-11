@@ -1,0 +1,144 @@
+/* Welcome to Compass. Use this file to write IE specific override styles.
+ * Import this file using the following HTML or equivalent:
+ * <!--[if IE]>
+ *   <link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+ * <![endif]--> */
+@import "compass/utilities/";
+@import "compass/css3/";
+@import "compass/utilities/general/hacks";
+@import "_variables";
+@import "_mixins";
+@import "icon-font-ie";
+@import "providers-ie";
+
+@mixin message-arrow-ie ($messageType, $color ) {
+	.#{$messageType} .message-arrow.message-top-left-arrow:before,
+	.#{$messageType} .message-arrow.message-top-right-arrow:before {
+		color: $color;
+	}
+}
+
+.inline {
+    display: inline-block;
+    vertical-align: middle;
+    *display: inline !important;
+    *zoom: 1 !important;
+}
+
+.wrapper {
+  width: 965px;
+}
+@mixin cols {
+	float: left;
+	display: inline;
+	margin-left: $gutter-width;
+  	@include border-radius(5px);
+}
+
+.btn.icon {
+  padding-right: 0;
+  padding-left: 0;
+  @include inline-block;
+	span {
+		@include inline-block;
+	}
+	.btn-label, .message-label {
+		@include inline-block;
+		width: 75px;
+	}
+}
+
+.input_text, .input_select, .input_textarea, .checkbox {
+    width: 97%;
+}
+
+.message {
+	display: block;
+}
+
+@include message-arrow-ie (primary, darken($blue, 10));
+@include message-arrow-ie (standard, darken(#eee, 10));
+@include message-arrow-ie (success, darken($green, 10));
+@include message-arrow-ie (alert, darken($orange, 10));
+@include message-arrow-ie (warning, darken($red, 10));
+
+#main_nav li {
+	@include inline-block;
+	a {
+		text-decoration: none;
+		color: #ccc;
+		&:hover {
+			color: #fff;
+		}
+	}
+	&#user {
+		position: absolute;
+		right: 5px;
+	}
+}
+
+.show-grid .col1,
+.show-grid .col125,
+.show-grid .col2,
+.show-grid .col3,
+.show-grid .col4 {
+    background-color: #EEEEEE;
+    text-align: center;
+    line-height: 35px;
+}
+
+.show-grid .show-grid .col1,
+.show-grid .show-grid .col125,
+.show-grid .show-grid .col2,
+.show-grid .show-grid .col3,
+.show-grid .show-grid .col4 {
+	background-color: #ccc;
+    text-align: center;
+    line-height: 35px;
+}
+
+.title-bar-light .title-nav, .title-bar-dark .title-nav, .footer .title-nav {
+  padding: 1px;
+}
+
+.title-bar-blue-transparent {
+  background-color: lighten(#647C8B, 10);
+}
+
+.footer {
+  background-color: $grayLighter;
+}
+.step li {
+	padding: 0;
+}
+
+.step li a {
+	padding: 12px;
+}
+
+.title-bar-dark .step li {
+  border-right: 1px solid #666;
+}
+.title-bar-blue .step li {
+  border-right: 1px solid #3E515F;
+}
+
+.sidebar .list-item, .sidebar .accordion-item {
+  border-bottom: 1px solid #cdcdcd;
+}
+
+.tag-filter li.active a {
+	background-color: #758691;
+}
+
+button.icon, a.icon {
+	span {
+		@include inline-block;
+		float: none !important;
+	}
+}
+
+div.icon span {
+	float: none;
+	@include inline-block;
+}

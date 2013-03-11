@@ -1,0 +1,209 @@
+@import "_mixins.scss";
+@import "compass/css3/";
+@import "_variables";
+@import "icons/janrain-provider150/*.png";
+@include all-janrain-provider150-sprites;
+@import "icons/janrain-provider100/*.png";
+@include all-janrain-provider100-sprites;
+
+/*/ Provider Colors /*/
+$facebook: #3B5998;
+$twitter: #27C9FF;
+$myspace: #000;
+$instagram: #517FA4;
+$disqus: #2E9FFF;
+$microsoftaccount: #3E73B4;
+$yahoo: #670267;
+$google: #61A6FB;
+$openid: #F8921C;
+$amazon: #000;
+$amazonOrange: #FF9900;
+$aol: #000;
+$livejournal: #2B5889;
+$mixi: #D1AD5A;
+$myopenid: #20499D;
+$netlog: #000;
+$flickr: #0063DB;
+$blogger: #F7931E;
+$verisign: #FFC10C;
+$wordpress: #21759B;
+$hyves: #FFAA00;
+$linkedin: #005A87;
+$paypal: #1F356F;
+$salesforce: #333;
+$orkut: #B90C91;
+$vzn: #EE0000;
+$tumblr: #31516F;
+$foursquare: #1769B4;
+$sinaweibo: #D72829;
+$renren: #005EAC;
+$soundcloud: #FF4C13;
+$vk: #45668E;
+$email: #009DDC;
+$placeholder: #999;
+$janrain: #009DDC;
+$white: #fff;
+
+// Produces icon classes including transparent and grayscale.
+// Provider name is required to generate class and locate correct asset.
+@mixin icons-janrain-provider-nonretina {
+	  @each $iconName in $providers {
+		  @each $size in $providerIconSizes {
+			.janrain-provider-icon-#{$size}.janrain-provider-icon-#{$iconName} {
+				background-image: image-url('icons/janrain-providers/#{$size}/#{$iconName}.png');
+			}
+		}
+	}
+}
+//Grayscale imgs
+@mixin icons-janrain-provider-grayscale {
+  @each $iconName in $providers {
+		.janrain-provider-icon-grayscale-#{$iconName} {
+			background-image: image-url('icons/janrain-providers/grayscale/#{$iconName}.png');
+			@include background-size (cover);
+		}
+	}
+}
+
+// White bg icon class for providers with black icons.
+// Quilt provides the white bg through CSS for selected providers.
+@mixin icons-janrain-provider-white-bg {
+	@each $iconName in $providersBGNeeded {
+	.janrain-provider-icon-bg.janrain-provider-icon-#{$iconName} {
+		background-image: image-url('icons/janrain-providers/#{$iconName}.png');
+		background-color: white;
+		@include background-size (80% 80%);
+		background-repeat: no-repeat;
+		background-position: center center;
+		}
+	}
+}
+//change twitter logo to have a bg for dark bg site/one row widget
+@mixin twitter-bg {
+	  @each $size in $providerIconSizes {
+		.janrain-provider-icon-#{$size}.janrain-provider-icon-bg.janrain-provider-icon-twitter {
+			background-image: image-url('icons/janrain-providers/#{$size}/twitter_bg.png');
+		}
+	}
+}
+// Width, height and border radius for icons in standard sizes.
+@mixin provider-size ($size, $radius) {
+	.janrain-provider-icon-#{$size} {
+		width: #{$size}px;
+		height: #{$size}px;
+		@include border-radius (#{$radius}px);
+	}
+}
+// Provides provider color to text, links, btns and bgs
+// Requires both provider name and provider color variable
+@mixin provider-color ($providerName, $provider) {
+	.janrain-provider-bg-color-#{$providerName} {
+		background-color: $provider;
+	}
+	.janrain-provider-text-color-#{$providerName} {
+		color: $provider !important;
+	}
+	a.janrain-provider-text-color-#{$providerName} {
+		color: $provider !important;
+		&:hover {
+		 color: darken($provider, 15) !important;
+	 	}
+	}
+}
+
+*[class*="janrain-provider-icon-"] {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+*[class*="provider150-"],
+*[class*="provider100-"] {
+  @include inline-block;
+  vertical-align: middle;
+}
+
+*[class*="provider150-"] {
+  width: 150px;
+  height: 50px;
+}
+
+*[class*="provider100-"] {
+  width: 100px;
+  height: 30px;
+}
+
+//Generates all of the classes needed from the provider list above
+@include icons-janrain-provider-nonretina;
+
+//Custom open ID provider in Engage needs to scale icon
+.janrain-provider-icon-customopenid {
+	@include background-size (cover);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+//Grayscale scaled icons
+@include icons-janrain-provider-grayscale;
+
+//Generates the classes for providers that need a white bg for a dark bg site
+@include icons-janrain-provider-white-bg;
+
+//Generates the classes for providers that need a white bg for a dark bg site
+@include twitter-bg;
+
+// width/height, border-radius
+@include provider-size (48, 5);
+@include provider-size (32, 3);
+@include provider-size (24, 3);
+@include provider-size (16, 3);
+
+//amazon doesn't use the mixin as they have special cases for color use
+.janrain-provider-bg-color-amazon {
+	background-color: $amazonOrange;
+}
+.janrain-provider-text-color-amazon {
+	color: $amazon !important;
+}
+a.janrain-provider-text-color-amazon {
+	color: $amazon !important;
+	&:hover {
+	 color: darken($amazon, 15) !important;
+	}
+}
+
+
+@include provider-color (aol, $aol);
+@include provider-color (blogger, $blogger);
+@include provider-color (email, $email);
+@include provider-color (disqus, $disqus);
+@include provider-color (facebook, $facebook);
+@include provider-color (flickr, $flickr);
+@include provider-color (foursquare, $foursquare);
+@include provider-color (google, $google);
+@include provider-color (instagram, $instagram);
+@include provider-color (hyves, $hyves);
+@include provider-color (janrain, $janrain);
+@include provider-color (linkedin, $linkedin);
+@include provider-color (microsoftaccount, $microsoftaccount);
+@include provider-color (live_id, $microsoftaccount);
+@include provider-color (livejournal, $livejournal);
+@include provider-color (mixi, $mixi);
+@include provider-color (myopenid, $myopenid);
+@include provider-color (myspace, $myspace);
+@include provider-color (netlog, $netlog);
+@include provider-color (openid, $openid);
+@include provider-color (orkut, $orkut);
+@include provider-color (paypal, $paypal);
+@include provider-color (renren, $renren);
+@include provider-color (salesforce, $salesforce);
+@include provider-color (sinaweibo, $sinaweibo);
+@include provider-color (soundcloud, $soundcloud);
+@include provider-color (tumblr, $tumblr);
+@include provider-color (twitter, $twitter);
+@include provider-color (verisign, $verisign);
+@include provider-color (vzn, $vzn);
+@include provider-color (vk, $vk);
+@include provider-color (wordpress, $wordpress);
+@include provider-color (yahoo, $yahoo);
+@include provider-color (tumblr, $tumblr);
+
+@import "providers-retina";

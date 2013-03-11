@@ -1,0 +1,104 @@
+//Theme Colors
+$backgroundColor: #fff;
+$secondaryBackgroundColor: #F6F6F6;
+
+$contrastColor: #009DDC;
+$secondaryContrastColor: #074764;
+
+//All purpose Colors
+$white: #fff;
+$black: #000;
+
+//Body Styles
+$bodyBGColor: $backgroundColor;
+$baseFont: helvetica, sans-serif;
+$baseFontSize: 13px;
+$baseLine: 17px;
+$textColor: #666;
+$darkTextColor: $secondaryBackgroundColor;
+
+//Header Background 
+$headerBGColor: $contrastColor;
+$headerTextColor: $white;
+$subheadBGColor: lighten($contrastColor, 10);
+$subheadTextColor: $white;
+$bodyHeadingTextColor: $textColor;
+$contrastTextColor: $white;
+
+//Buttons, Links
+$primaryButtonBGColor: $contrastColor;
+$primaryButtonTextColor: $white;
+$secondaryButtonBGColor: $secondaryBackgroundColor;
+$secondaryButtonTextColor: $contrastColor;
+
+$linkColor: $contrastColor;
+$linkVisited: $secondaryContrastColor;
+$linkColorHover: darken($linkColor, 15);
+
+$containerlinkColor: $contrastColor;
+$containerlinkVisited: $secondaryContrastColor;
+$containerlinkColorHover: darken($linkColor, 15);
+
+//Content
+$containerBGColor: $secondaryBackgroundColor;
+$containerTextColor: $textColor;
+$containerBorderColor: #ccc;
+$containerHeadingTextColor: $textColor;
+$mobileFooterColor: #666;
+
+//Fields, Inputs
+$inputBorderColor: #ccc;
+$inputPlaceholderColor: #ccc;
+$inputBGColor: $secondaryBackgroundColor;
+$inputActiveBGColor: #fff;
+$inputActiveShadowColor: $contrastColor;
+$inputActiveBorderColor: $contrastColor;
+$inputActiveColor: #333;
+$inputShadow: 0 0 3px rgba(0,0,0,0.2) inset;
+
+//Labels, Tips, Errors
+$LabelColor: $textColor;
+$errorTextColor: #F58002;
+$errorBGColor: lighten($errorTextColor, 45);
+$errorBorderColor: darken($errorTextColor, 5);
+$tipTextColor: #AAAAAA;
+$validatedTextColor: #AAAAAA;
+$validatingTextColor: #AAAAAA;
+$inputErrorShadow: 0 0 3px rgba(245, 148, 2, 0.3) inset;
+
+// Gradients
+$primaryGradientLight: lighten($primaryButtonBGColor, 17);
+$primaryGradientDark: darken($primaryButtonBGColor, 3);
+$secondaryGradientLight: lighten($secondaryButtonBGColor, 17);
+$secondaryGradientDark: darken($secondaryButtonBGColor, 3);
+
+//Button/Message Shadows
+$lightShadowTop: 0 1px 0px 0px rgba(255, 255, 255, 0.35) inset;
+$darkShadowTop: 0 1px 0px 0px rgba(0, 0, 0, 0.2) inset;
+$darkShadowBottom: 0 -1px 0px 0px rgba(0, 0, 0, 0.2) inset;
+$lightShadowBottom: 0 -1px 0px 0px rgba(0, 0, 0, 0.1) inset;
+$innerShadow: 0 -26px 13px -13px rgba(0, 0, 0, 0.2) inset;
+$InsetHover: rgba($black, 0.05) 0 0 20px inset;
+
+$lightShadowTopActive: 0 1px 0px 0px rgba(0, 0, 0, 0.1) inset;
+$InsetActive: rgba($black, 0.1) 0 0 20px inset;
+$lightShadowBottomActive: 0 -1px 0px 0px rgba(255, 255, 255, 0.35) inset;
+
+//Mixins
+
+//Indent inputs for wider layouts
+@mixin input-margin ($leftMargin: 112px) {
+  margin-left: $leftMargin;
+}
+@mixin ul ($type: none, $padding: 0, $margin: 0) {
+	list-style-type: $type;
+	padding: $padding;
+	margin: $margin;
+}
+@mixin providers-li ($width: 150px, $height: 23px, $padding: 0, $margin: 0 15px 15px 0) {
+	width: $width;
+	height: $height;
+	margin: $margin;
+	padding: $padding;
+	@include inline-block;
+}

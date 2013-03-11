@@ -1,0 +1,61 @@
+<%= stylesheet_link_tag "widgets", :media => "all" %>
+<%= stylesheet_link_tag "widget-demo", :media => "all" %>
+<!--[if lte IE 8]>
+  <%= stylesheet_link_tag "widgets-ie", :media => "all" %>
+<![endif]-->
+
+<div class="wrapper section">
+	<h2>Widgets</h2>
+	<div class="section contentBoxWhite">
+    	<div class="capture_form_item orientation">
+    	    <div class="capture_display_radios">
+    	      <div class="capture_radio_box radio-desktop">
+    	        <input type="radio" name="orientation" id="radio_desktop" />
+    	        <label for="radio_desktop">desktop</label>
+    	      </div>
+    	    </div>
+    	    <div class="capture_display_radios">
+    	      <div class="capture_radio_box radio-mobile-portrait">
+    	        <input type="radio" name="orientation" id="radio_mobile_portrait" />
+    	        <label for="radio_mobile_portrait">mobile portrait</label>
+    	      </div>
+    	    </div>
+    	    <div class="capture_display_radios">
+    	      <div class="capture_radio_box radio-mobile-landscape">
+    	        <input type="radio" name="orientation" id="radio_mobile_landscape" />
+    	        <label for="radio_mobile_landscape">mobile landscape</label>
+    	      </div>
+    	    </div>
+    	</div>
+		<div class="janrain-capture-ui capture-ui-content">
+		<%= render 'widgets/components/signin' %>
+		</div>
+		<div class="janrain-capture-ui capture-ui-content">
+		<%= render 'widgets/components/social-create' %>
+		</div>
+		<div class="janrain-capture-ui capture-ui-content">
+		<%= render 'widgets/components/traditional-create' %>
+		</div>
+		<div class="janrain-capture-ui capture-ui-content">
+		<%= render 'widgets/components/account-exists' %>
+		</div>
+		<div class="janrain-capture-ui capture-ui-content">
+		<%= render 'widgets/components/add-signin' %>
+		</div>
+		<div class="janrain-capture-ui capture-ui-content">
+		<%= render 'widgets/components/public-profile' %>
+		</div>
+		<div class="janrain-capture-ui capture-ui-content">
+		<%= render 'widgets/components/edit-profile' %>
+		</div>
+		<div class="janrain-capture-ui capture-ui-content">
+		<%= render 'widgets/components/linked-accounts' %>
+		</div>
+		<div class="janrain-capture-ui capture-ui-content">
+		<%= render 'widgets/components/account-info' %>
+		</div>
+		<div class="janrain-capture-ui capture-ui-content">
+		<%= render 'widgets/components/instructions' %>
+		</div>
+
+</div>

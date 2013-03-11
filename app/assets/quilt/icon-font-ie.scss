@@ -1,0 +1,14 @@
+@import "compass/css3/";
+@import "compass/css3/font-face";
+@import "_variables";
+
+@include font-face('janrain-icons',font-files('JanrainIcons.woff',woff,'JanrainIcons.ttf',truetype,'JanrainIcons.svg',svg),'JanrainIcons.eot',normal,normal);
+
+@each $icon in $icons {
+	$character: nth($icon, 2);
+	$name: nth($icon, 3);
+	.janrain-icon-#{$name} {
+		*zoom:expression( this.runtimeStyle['zoom'] = "1", this.innerHTML = '#{$character};'); font-family: 'janrain-icons';
+	}
+}
+
